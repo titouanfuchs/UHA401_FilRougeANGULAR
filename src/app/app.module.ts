@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GroupCardComponent } from './group-card/group-card.component';
+import { AlbumCardComponent } from './album-card/album-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GroupCardComponent
+    GroupCardComponent,
+    AlbumCardComponent
   ],
   imports: [
     BrowserModule,
