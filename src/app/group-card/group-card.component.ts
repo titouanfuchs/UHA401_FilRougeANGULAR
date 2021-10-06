@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupCardComponent implements OnInit {
 
+  GroupName: string = "Group Sans Nom";
+  GroupChanteur: string = "Chanteur Sans Nom";
+  GroupOrigin: string = "Pas d'origine";
+
   constructor() { }
 
   ngOnInit(): void {
