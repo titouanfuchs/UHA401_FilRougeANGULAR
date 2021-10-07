@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GroupCardComponent } from './group-card/group-card.component';
 import { AlbumCardComponent } from './album-card/album-card.component';
+import { GenreTagComponent } from './genre-tag/genre-tag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GroupCardComponent,
-    AlbumCardComponent
+    AlbumCardComponent,
+    GenreTagComponent
   ],
   imports: [
     BrowserModule,
