@@ -10,6 +10,8 @@
 .dataSection{
   background-color: rgba(245, 245, 245, 0.15);
   border-radius: 5px;
+
+  overflow: hidden;
 }
 
 h1{
@@ -18,4 +20,9 @@ h1{
 
 h2{
   line-height: 3em;
+}
+
+.overflowX{
+  overflow-x: auto;
+  overflow-y: hidden;
 }

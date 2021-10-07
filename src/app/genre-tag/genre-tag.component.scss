@@ -5,12 +5,13 @@
   text-align: center;
 
   width: fit-content;
+  min-width: 10em;
   min-height: 3.5em;
+  max-height: 3.5em;
 
   padding: 5px;
 }
 
 span{
   line-height: 2em;
-  font-size: 0.75vw;
 }

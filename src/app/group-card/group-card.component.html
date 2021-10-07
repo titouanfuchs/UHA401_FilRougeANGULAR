@@ -11,8 +11,8 @@
         <div class="col p-1 ms-1 colHeight dataSection">
           <h2>{{ GroupOrigin }}</h2>
         </div>
-        <div class="col-12 p-1 colHeight dataSection" style="height: fit-content">
-          <div class="d-flex flex-row overflow-auto h-100">
+        <div class="col-12 p-1 colHeight dataSection" style="height: fit-content; min-height: 7em">
+          <div class="d-flex flex-row overflowX h-100">
             <app-genre-tag *ngFor="let genre of GroupGenres; let i = index" [tagName]="genre['nom']"></app-genre-tag>
           </div>
         </div>
