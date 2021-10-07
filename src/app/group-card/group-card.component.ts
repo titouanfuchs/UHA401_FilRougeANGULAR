@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-group-card',
@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupCardComponent implements OnInit {
 
-  GroupName: string = "Group Sans Nom";
-  GroupChanteur: string = "Chanteur Sans Nom";
-  GroupOrigin: string = "Pas d'origine";
+  @Input() GroupName: string = "Group Sans Nom";
+  @Input() GroupChanteur: string = "Chanteur Sans Nom";
+  @Input() GroupOrigin: string = "Pas d'origine";
+  @Input() GroupGenres: any[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

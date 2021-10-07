@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-genre-tag',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenreTagComponent implements OnInit {
 
-  tagName: string = "Pas de Tag";
+  @Input() tagName: string = "Pas de Tag";
 
   constructor() { }
 

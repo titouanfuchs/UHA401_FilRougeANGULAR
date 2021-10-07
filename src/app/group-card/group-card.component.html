@@ -1,4 +1,4 @@
-<div class="container mb-2 p-2 card" style="width: 100%; height: 18em" >
+<div class="container mb-2 p-2 card" style="width: 100%; height: fit-content" >
   <div class="row h-100 g-1">
     <div class="col" style="max-width: 83%">
       <div class="row g-1 me-1 shadow" >
@@ -11,9 +11,9 @@
         <div class="col p-1 ms-1 colHeight dataSection">
           {{ GroupOrigin }}
         </div>
-        <div class="col-12 p-1 colHeight dataSection" style="height: 6em">
+        <div class="col-12 p-1 colHeight dataSection" style="height: fit-content">
           <div class="d-flex flex-row overflow-auto h-100">
-            <app-genre-tag></app-genre-tag>
+            <app-genre-tag *ngFor="let genre of GroupGenres; let i = index" [tagName]="genre['nom']"></app-genre-tag>
           </div>
         </div>
       </div>
