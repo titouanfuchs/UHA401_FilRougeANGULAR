@@ -12,10 +12,10 @@
     <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 99%"> <!--Groupes-->
       <app-group-card *ngFor="let groupe of groupes" [GroupID]="groupe['id']" [GroupName]="groupe['nom']" [GroupChanteur]="groupe['chanteur']" [GroupOrigin]="groupe['origin']" [GroupGenres]="groupe['genres']"></app-group-card>
     </div>
-    <div class="m-2 col-3 sectionBackground shadow"> <!--Albums-->
-
+    <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 99%"> <!--Albums-->
+      <app-album-card></app-album-card>
     </div>
-    <div class="m-2 col-4 sectionBackground shadow"> <!--Details-->
+    <div class="m-2 col-4 section Background shadow"> <!--Details-->
 
     </div>
   </div>
