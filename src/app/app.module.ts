@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GroupCardComponent } from './group-card/group-card.component';
 import { AlbumCardComponent } from './album-card/album-card.component';
 import { GenreTagComponent } from './genre-tag/genre-tag.component';
-import {GroupesService} from "./services/groupes.service";
+import {GroupesService} from "./services/groupesService/groupes.service";
 
 @NgModule({
   declarations: [

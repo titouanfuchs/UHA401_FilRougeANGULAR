@@ -1,14 +1,14 @@
 <div class="container mb-2 p-2 card" style="width: 100%; height: fit-content" >
   <div class="row h-100 g-1">
     <div class="col" style="max-width: 83%">
-      <div class="row g-1 me-1 shadow" >
-        <div class="col-12 p-1 colHeight overflow-hidden dataSection p-2">
-          <h1 class="d-block h-100 fs-2">{{ GroupName }}</h1>
+      <div class="row g-1 me-1 shadow p-1" >
+        <div class="col-12 colHeight overflow-hidden dataSection">
+          <h1>{{ GroupName }}</h1>
         </div>
-        <div class="col p-1 me-1 colHeight dataSection">
+        <div class="col me-1 colHeight dataSection">
           <h2>{{ GroupChanteur }}</h2>
         </div>
-        <div class="col p-1 ms-1 colHeight dataSection">
+        <div class="col ms-1 colHeight dataSection">
           <h2>{{ GroupOrigin }}</h2>
         </div>
         <div class="col-12 p-1 colHeight dataSection" style="height: fit-content; min-height: 7em">
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="col-2 align-content-center">
+    <div class="col-2 align-content-center" (click)="getAlbums(GroupID)">
       <div class="h-100 btn btn-outline-light" title="Afficher les albums de {{GroupName}}">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>

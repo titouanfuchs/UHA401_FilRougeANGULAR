@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {GroupesService} from "../services/groupesService/groupes.service";
 
 @Component({
   selector: 'app-group-card',
@@ -7,12 +8,17 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class GroupCardComponent implements OnInit {
 
+  @Input() GroupID: number = -1;
   @Input() GroupName: string = "Group Sans Nom";
   @Input() GroupChanteur: string = "Chanteur Sans Nom";
   @Input() GroupOrigin: string = "Pas d'origine";
   @Input() GroupGenres: any[] = [];
 
-  constructor() { }
+  getAlbums(groupID:number){
+    this.groupesService.getGroupAlbums(groupID);
+  }
+
+  constructor(private groupesService:GroupesService) { }
 
   ngOnInit(): void {
   }

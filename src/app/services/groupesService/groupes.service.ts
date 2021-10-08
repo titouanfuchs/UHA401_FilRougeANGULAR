@@ -120,4 +120,8 @@ export class GroupesService {
       ]
     }
   ]
+
+  getGroupAlbums(group: number){
+    alert("Requète des albums du groupe : " + group.toString());
+  }
 }
