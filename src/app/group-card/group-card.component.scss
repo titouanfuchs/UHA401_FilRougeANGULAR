@@ -13,18 +13,44 @@
 
   overflow: hidden;
 
-  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+
+  user-select: none;
 }
 
-h1{
-  line-height: 100%;
+.genreSection{
+  align-items: start;
 }
 
-h2{
-  line-height: 100%;
+.bigText{
+  font-size: 2.5em;
+  margin: 2.5px;
+}
+
+.mediumText{
+  font-size: 1.5em;
+  margin: 2.5px;
+}
+
+.sectionTitle{
+  font-size: 1em;
+  margin: 2.5px;
+
+  color: rgba(245, 245, 245, 0.5);
 }
 
 .overflowX{
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.alignIconMiddle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2.5em;
 }
