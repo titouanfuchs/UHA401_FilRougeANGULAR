@@ -1,21 +1,44 @@
 <div class="container-fluid h-100 justify-content-center overflow-hidden">
-  <div class="row mb-2 sectionBackground shadow" style="height: 7%">
-    <div class="col-12">
-
+  <div class="row justify-content-center mb-3" style="height: 10%">
+    <div class="m-2 col-1 order-first h-100" style="max-width: 5%"><!--Blank--></div>
+    <div class="m-2 col-3 p-2 h-100 justify-content-center sectionBackground shadow"> <!--Groupes Search-->
+      <div class="dFlex">
+        <div class="w-100 m-1 sectionTitle text-center">Groupes</div>
+        <div class="w-100 m-1">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Rechercher un groupe..." aria-label="Groupe" aria-describedby="addon-wrapping">
+            <button type="button" class="btn btn-outline-light">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="m-2 col-3 p-2 h-100 justify-content-center sectionBackground shadow"> <!--Albums Search-->
+      <div class="dFlex">
+        <div class="w-100 m-1 sectionTitle text-center">Albums</div>
+        <div class="w-100 m-1">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Rechercher un album..." aria-label="Groupe" aria-describedby="addon-wrapping">
+            <button type="button" class="btn btn-outline-light">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-2 col-4 section h-100"> <!--Blank--></div>
   </div>
-
-  <div class="row justify-content-center" style="height: 92%">
-    <div class="m-2 col-1 sectionBackground shadow"> <!--Liens-->
-
+  <div class="row justify-content-center" style="height: 90%">
+    <div class="m-2 col-1 order-first sectionBackground shadow" style="height: 95%;max-height: 95%; max-width: 5%"> <!--Liens-->
     </div>
-    <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 99%"> <!--Groupes-->
+    <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Groupes-->
       <app-group-card *ngFor="let groupe of groupes" [GroupID]="groupe['id']" [GroupName]="groupe['nom']" [GroupChanteur]="groupe['chanteur']" [GroupOrigin]="groupe['origin']" [GroupGenres]="groupe['genres']"></app-group-card>
     </div>
-    <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 99%"> <!--Albums-->
+    <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Albums-->
       <app-album-card *ngFor="let album of albums" [AlbumName]="album['nom']" [AlbumArtiste]="album['artiste']" [AlbumCover]="album['couverture']" [AlbumPiste]="album['pistes']" [AlbumSortie]="album['sortie']"></app-album-card>
     </div>
-    <div class="m-2 col-4 section Background shadow"> <!--Details-->
+    <div class="m-2 col-4 section Background shadow" style="max-height: 95%"> <!--Details-->
 
     </div>
   </div>
