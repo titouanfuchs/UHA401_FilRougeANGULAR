@@ -8,6 +8,7 @@ import { GroupCardComponent } from './group-card/group-card.component';
 import { AlbumCardComponent } from './album-card/album-card.component';
 import { GenreTagComponent } from './genre-tag/genre-tag.component';
 import {GroupesService} from "./services/groupesService/groupes.service";
+import {AlbumsService} from "./services/albumsService/albums.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import {GroupesService} from "./services/groupesService/groupes.service";
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [GroupesService],
+  providers: [GroupesService, AlbumsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

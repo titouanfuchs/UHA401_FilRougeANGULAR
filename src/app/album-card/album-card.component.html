@@ -1,15 +1,39 @@
 <div class="container mb-2 p-2 card">
-  <div class="row h-100 p-1">
-    <div class="col me-1 borderBlack" style="height: 20em">
-      <div class="col dataSection mb-1" style="height: 74%">
-
+  <div class="row h-100 p-1 g-1">
+    <div class="col" style="height: 20em; max-width: 45%">
+      <div class="col dataSection mb-1" style="height: 69%"> <!-- AlbumCover -->
+        <div class="h-100 w-100 coverSection">
+          <div>
+            <img src="{{AlbumCover}}" class="albumCover"/>
+          </div>
+        </div>
       </div>
-      <div class="col dataSection" style="height: 24%">
-
+      <div class="col dataSection dFlex" style="height: 29%"> <!-- Titre de l'album -->
+        <div class="sectionTitle">Titre :</div>
+        <div class="mediumText overflowY">{{AlbumName}}</div>
       </div>
     </div>
-    <div class="col borderBlack">
+    <div class="col">
+      <div class="col dataSection mb-1">
+        <div class="sectionTitle">Groupe :</div>
+        <div class="mediumText overflowY">{{AlbumArtiste}}</div>
+      </div>
+      <div class="col dataSection mb-1">
+        <div class="sectionTitle">Anne de sortie :</div>
+        <div class="mediumText overflowY">{{AlbumSortie}}</div>
+      </div>
+      <div class="col dataSection mb-1">
+        <div class="sectionTitle">Nombre de pistes :</div>
+        <div class="mediumText overflowY">{{AlbumPiste}}</div>
+      </div>
+    </div>
 
+    <div class="col" style="max-width: 10%">
+      <div class="h-100 w-100 btn btn-outline-light alignIconMiddle" title="Afficher les détails de l'album : ">
+        <div>
+          <i class="bi bi-chevron-double-right"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>

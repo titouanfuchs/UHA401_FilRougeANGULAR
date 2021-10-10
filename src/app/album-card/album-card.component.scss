@@ -13,3 +13,22 @@
 
   padding: 5%;
 }
+
+.coverSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dFlex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.albumCover{
+  width: 100%;
+  height: auto;
+}

@@ -46,3 +46,38 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: #f5f
 .verticalAlignMiddle{
   vertical-align: middle;
 }
+
+.alignIconMiddle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2.5em;
+}
+
+.bigText{
+  font-size: 2.5em;
+  margin: 2.5px;
+}
+
+.mediumText{
+  font-size: 1.5em;
+  margin: 2.5px;
+}
+
+.sectionTitle{
+  font-size: 1em;
+  margin: 2.5px;
+
+  color: rgba(245, 245, 245, 0.5);
+}
+
+.overflowX{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.overflowY{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
