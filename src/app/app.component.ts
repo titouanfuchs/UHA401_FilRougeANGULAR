@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GroupesService} from "./services/groupesService/groupes.service";
 import {AlbumsService} from "./services/albumsService/albums.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',

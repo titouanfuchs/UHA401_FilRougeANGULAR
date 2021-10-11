@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {GroupesService} from "../services/groupesService/groupes.service";
-import {AlbumsService} from "../services/albumsService/albums.service";
+import { GroupesService } from "../services/groupesService/groupes.service";
+import { AlbumsService } from "../services/albumsService/albums.service";
 
 @Component({
   selector: 'app-main-view',
@@ -16,7 +16,12 @@ export class MainViewComponent implements OnInit {
 
   }
 
+  onInput(event:any){
+    this.groupeService.searchGroupe(event.target.value);
+  }
+
   ngOnInit(): void {
+    this.groupeService.searchGroupe("");
     this.groupes = this.groupeService.groupes;
     this.albums = this.albumService.albums;
   }

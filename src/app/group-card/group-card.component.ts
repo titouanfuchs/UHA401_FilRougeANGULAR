@@ -17,7 +17,6 @@ export class GroupCardComponent implements OnInit {
   getAlbums(groupID:number){
     this.groupesService.getGroupAlbums(groupID);
   }
-
   constructor(private groupesService:GroupesService) { }
 
   ngOnInit(): void {

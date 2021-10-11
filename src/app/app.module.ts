@@ -12,6 +12,7 @@ import { AlbumsService } from "./services/albumsService/albums.service";
 import { MainViewComponent } from './main-view/main-view.component';
 import {RouterModule, Routes} from "@angular/router";
 import { AdminViewComponent } from './admin-view/admin-view.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -32,9 +33,10 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GroupesService, AlbumsService],
+  providers: [GroupesService, AlbumsService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,127 +1,54 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupesService {
-  groupes = [
-    {
-      "nom": "System Of A Down",
-      "id": "1",
-      "chanteur": "Serj Tankian",
-      "origin": "Glendale",
-      "genres": [
-        {
-          "nom": "nu metal"
-        },
-        {
-          "nom": "hard rock"
-        },
-        {
-          "nom": "heavy metal"
-        },
-        {
-          "nom": "alternative metal"
-        }
-      ]
-    },
-    {
-      "nom": "Mika",
-      "id": "2",
-      "chanteur": "Michael Holbrook",
-      "origin": "Beyrouth",
-      "genres": [
-        {
-          "nom": "pop"
-        },
-        {
-          "nom": "pop-rock"
-        },
-        {
-          "nom": "classique"
-        }
-      ]
-    },
-    {
-      "nom": "Muse",
-      "id": "3",
-      "chanteur": "Matthew Bellamy",
-      "origin": "Royaume-Uni",
-      "genres": [
-        {
-          "nom": "rock alternatif"
-        },
-        {
-          "nom": "rock progressif"
-        },
-        {
-          "nom": "new prog"
-        },
-        {
-          "nom": "art rock"
-        }
-      ]
-    },
-    {
-      "nom": "aiden",
-      "id": "4",
-      "chanteur": "William Francis",
-      "origin": "Seattle",
-      "genres": [
-        {
-          "nom": "Horror punk"
-        },
-        {
-          "nom": "post-hardcore"
-        },
-        {
-          "nom": "gothic rock"
-        },
-        {
-          "nom": "screamo"
-        }
-      ]
-    },
-    {
-      "nom": "The Beatles",
-      "id": "5",
-      "chanteur": "John Lennon",
-      "origin": "Liverpool",
-      "genres": [
-        {
-          "nom": "pop"
-        },
-        {
-          "nom": "Rock"
-        },
-        {
-          "nom": "psychedelique"
-        }
-      ]
-    },
-    {
-      "nom": "Booba",
-      "id": "6",
-      "chanteur": "Elie Yaffa",
-      "origin": "Boulogne-Billancourt",
-      "genres": [
-        {
-          "nom": "hip-hop"
-        },
-        {
-          "nom": "rap francais"
-        },
-        {
-          "nom": "trap"
-        },
-        {
-          "nom": "gansta rap"
-        }
-      ]
-    }
-  ]
+  constructor(private httpClient:HttpClient) {
+  }
+  groupes = [];
 
   getGroupAlbums(group: number){
     alert("Requète des albums du groupe : " + group.toString());
+  }
+
+  searchGroupe(searcharg:string) {
+    let optionRequete = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Methods': 'GET',
+      })
+    };
+    optionRequete.headers = optionRequete.headers.set('Access-Control-Allow-Origin','Access-Control-Allow-Methods' );
+    if (searcharg){
+      console.log("search");
+      this.httpClient
+        .get<any>("api/groupes?search=" + searcharg, optionRequete)
+        .subscribe((response) =>{
+          for (let groupe in response){
+
+          }
+        }, (error) => {
+          console.log(error);
+      });
+    }else{
+      console.log("No Search");
+      this.httpClient
+        .get<any>("api/groupes?search=" + searcharg, optionRequete)
+        .subscribe((response) =>{
+          let groupes_ = Object.values(response);
+          var self = this;
+          let result = [];
+
+          groupes_.forEach(function (value){
+            result.push(value);
+          });
+
+          this.groupes = result;
+        }, (error) => {
+          console.log(error);
+        });
+    }
   }
 }

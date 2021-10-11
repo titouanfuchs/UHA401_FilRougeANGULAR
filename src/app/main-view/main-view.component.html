@@ -6,7 +6,7 @@
         <div class="w-100 m-1 sectionTitle text-center">Groupes</div>
         <div class="w-100 m-1">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Rechercher un groupe..." aria-label="Groupe" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" placeholder="Rechercher un groupe..." name="groupeSearch" aria-label="Groupe" aria-describedby="addon-wrapping" (keyup)="onInput($event)">
             <button type="button" class="btn btn-outline-light">
               <i class="bi bi-search"></i>
             </button>
@@ -31,6 +31,11 @@
   </div>
   <div class="row justify-content-center" style="height: 90%">
     <div class="m-2 col-1 order-first sectionBackground shadow" style="height: 95%;max-height: 95%; max-width: 5%"> <!--Liens-->
+      <div class="dFlex linksFlex h-100 w-100">
+        <button type="button" class="btn btn-outline-light w-100" title="Paramètres" routerLink="admin">
+          <i class="bi bi-sliders"></i>
+        </button>
+      </div>
     </div>
     <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Groupes-->
       <app-group-card *ngFor="let groupe of groupes" [GroupID]="groupe['id']" [GroupName]="groupe['nom']" [GroupChanteur]="groupe['chanteur']" [GroupOrigin]="groupe['origin']" [GroupGenres]="groupe['genres']"></app-group-card>

@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://localhost:80/fil-rouge-titouan-2021/API/",
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "secure": false
+  }
+}
+
