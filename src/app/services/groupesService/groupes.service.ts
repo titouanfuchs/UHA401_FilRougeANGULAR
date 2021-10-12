@@ -1,51 +1,46 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class GroupesService {
+  private groupes: any = [];
+  groupeSubject = new Subject<any[]>();
+
   constructor(private httpClient:HttpClient) {
   }
-  groupes = [];
+
+  private emitGroupesSubject(){
+    this.groupeSubject.next(this.groupes.slice());
+  }
 
   getGroupAlbums(group: number){
     alert("Requète des albums du groupe : " + group.toString());
   }
 
-  searchGroupe(searcharg:string) {
-    let optionRequete = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Methods': 'GET',
-      })
-    };
-    optionRequete.headers = optionRequete.headers.set('Access-Control-Allow-Origin','Access-Control-Allow-Methods' );
+  searchGroupe(searcharg:string){
+    let result: any[] = [];
+
     if (searcharg){
       console.log("search");
       this.httpClient
-        .get<any>("api/groupes?search=" + searcharg, optionRequete)
+        .get<any>("api/groupes?search=" + searcharg)
         .subscribe((response) =>{
-          for (let groupe in response){
-
-          }
+          this.groupes = response;
+          this.emitGroupesSubject();
         }, (error) => {
           console.log(error);
       });
     }else{
       console.log("No Search");
       this.httpClient
-        .get<any>("api/groupes?search=" + searcharg, optionRequete)
+        .get<any>("api/groupes?search=" + searcharg)
         .subscribe((response) =>{
-          let groupes_ = Object.values(response);
-          var self = this;
-          let result = [];
-
-          groupes_.forEach(function (value){
-            result.push(value);
-          });
-
-          this.groupes = result;
+          this.groupes = response;
+          this.emitGroupesSubject();
         }, (error) => {
           console.log(error);
         });

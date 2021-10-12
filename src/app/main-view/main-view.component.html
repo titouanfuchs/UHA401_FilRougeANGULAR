@@ -6,7 +6,7 @@
         <div class="w-100 m-1 sectionTitle text-center">Groupes</div>
         <div class="w-100 m-1">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Rechercher un groupe..." name="groupeSearch" aria-label="Groupe" aria-describedby="addon-wrapping" (keyup)="onInput($event)">
+            <input type="text" class="form-control" placeholder="Rechercher un groupe..." name="groupeSearch" aria-label="Groupe" aria-describedby="addon-wrapping" (keyup)="onGroupInput($event)">
             <button type="button" class="btn btn-outline-light">
               <i class="bi bi-search"></i>
             </button>
@@ -19,7 +19,7 @@
         <div class="w-100 m-1 sectionTitle text-center">Albums</div>
         <div class="w-100 m-1">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Rechercher un album..." aria-label="Groupe" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" placeholder="Rechercher un album..." aria-label="Groupe" aria-describedby="addon-wrapping" (keyup)="onAlbumInput($event)">
             <button type="button" class="btn btn-outline-light">
               <i class="bi bi-search"></i>
             </button>

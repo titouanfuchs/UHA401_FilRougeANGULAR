@@ -11,15 +11,12 @@ import {HttpClient} from "@angular/common/http";
 
 export class AppComponent implements OnInit{
   title = 'angular-apiMusic';
-  groupes: any[] = [];
-  albums: any[] = [];
 
   constructor(private groupeService: GroupesService, private albumService:AlbumsService) {
 
   }
 
   ngOnInit() {
-    this.groupes = this.groupeService.groupes;
-    this.albums = this.albumService.albums;
+
   }
 }

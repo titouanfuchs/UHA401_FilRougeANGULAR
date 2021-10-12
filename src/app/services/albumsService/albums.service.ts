@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -86,6 +88,37 @@ export class AlbumsService {
       "couverture": "https:\/\/media.discordapp.net\/attachments\/755394000466346055\/760037163630461008\/Snapchat-1513701049.jpg"
     }
   ];
+  albumSubject = new Subject<any[]>();
 
-  constructor() { }
+  private emitAlbumsSubject(){
+    this.albumSubject.next(this.albums.slice());
+  }
+
+  constructor(private httpClient:HttpClient) { }
+
+  searchAlbum(searcharg:string){
+    let result: any[] = [];
+
+    if (searcharg){
+      console.log("search");
+      this.httpClient
+        .get<any>("api/albums?search=" + searcharg)
+        .subscribe((response) =>{
+          this.albums = response;
+          this.emitAlbumsSubject();
+        }, (error) => {
+          console.log(error);
+        });
+    }else{
+      console.log("No Search");
+      this.httpClient
+        .get<any>("api/albums?search=" + searcharg)
+        .subscribe((response) =>{
+          this.albums = response;
+          this.emitAlbumsSubject();
+        }, (error) => {
+          console.log(error);
+        });
+    }
+  }
 }
