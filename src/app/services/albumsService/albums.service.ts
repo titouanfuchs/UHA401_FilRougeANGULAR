@@ -96,9 +96,30 @@ export class AlbumsService {
 
   constructor(private httpClient:HttpClient) { }
 
-  searchAlbum(searcharg:string){
-    let result: any[] = [];
+  getAlbumByGroup(groupId:number){
+    this.httpClient
+      .get<any>("api/albums?groupe=" + groupId)
+      .subscribe((response) =>{
+        this.albums = response;
+        this.emitAlbumsSubject();
+      }, (error) => {
+        console.log(error);
+      });
+  }
 
+  getAlbumByID(albumID:number): any{
+    let album:any = this.httpClient
+      .get<any>("api/albums/" + albumID)
+      .subscribe((response) =>{
+        return response;
+      }, (error) => {
+        console.log(error);
+      });
+
+    return album;
+  }
+
+  searchAlbum(searcharg:string){
     if (searcharg){
       console.log("search");
       this.httpClient

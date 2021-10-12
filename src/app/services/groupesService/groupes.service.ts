@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
+import {AlbumsService} from "../albumsService/albums.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class GroupesService {
   private groupes: any = [];
   groupeSubject = new Subject<any[]>();
 
-  constructor(private httpClient:HttpClient) {
+  constructor(private httpClient:HttpClient, private albumsService:AlbumsService) {
   }
 
   private emitGroupesSubject(){
@@ -18,12 +19,10 @@ export class GroupesService {
   }
 
   getGroupAlbums(group: number){
-    alert("Requète des albums du groupe : " + group.toString());
+    this.albumsService.getAlbumByGroup(group);
   }
 
   searchGroupe(searcharg:string){
-    let result: any[] = [];
-
     if (searcharg){
       console.log("search");
       this.httpClient
