@@ -14,6 +14,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AlbumDetailsComponent } from './album-details/album-details.component';
+import {DetailsService} from "./services/detailsService/details.service";
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -29,7 +30,7 @@ const appRoutes: Routes = [
     GenreTagComponent,
     MainViewComponent,
     AdminViewComponent,
-    AlbumDetailsComponent
+    AlbumDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GroupesService, AlbumsService, HttpClient],
+  providers: [GroupesService, AlbumsService, DetailsService,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

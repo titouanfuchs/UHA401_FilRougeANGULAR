@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AlbumsService} from "../services/albumsService/albums.service";
+import {DetailsService} from "../services/detailsService/details.service";
 
 @Component({
   selector: 'app-album-card',
@@ -15,17 +16,14 @@ export class AlbumCardComponent implements OnInit {
   @Input() AlbumSortie:number = 0;
   @Input() AlbumPiste:number = 0;
 
-  constructor(private albumService:AlbumsService) { }
+  constructor(private albumService:AlbumsService, private detailService:DetailsService) { }
 
   ngOnInit(): void {
   }
 
   openAlbumDetails(id:number){
-    let data:any;
     this.albumService.getAlbumByID(id).subscribe( album =>{
-      data = album;
-      console.log(data);
+      this.detailService.getAlbumDetails(id, album);
     });
   }
-
 }
