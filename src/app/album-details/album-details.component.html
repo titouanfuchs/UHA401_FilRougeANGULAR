@@ -1,0 +1,37 @@
+<div class="container p-2 card" style="height: 100%">
+  <div class="row h-100 p-1">
+    <div class="col-12" style="height: 40%">
+      <div class="row p-2 h-100">
+        <div class="col h-100 dataSection coverSection">
+          <div class="text-center">
+            <img src="{{correspondingAlbum['couverture']}}" class="albumCover"/>
+          </div>
+        </div>
+        <div class="col-6 ms-1">
+          <div class="row h-100">
+            <div class="col-12 dataSection mb-1 dFlex" style="height: 20%">
+              <div class="bigText">{{correspondingAlbum['nom']}}</div>
+            </div>
+            <div class="col-12 dataSection">
+              <div class="dFlex flex-column h-100">
+                <div class="sectionTitle">Liens</div>
+                <div class="dFlex overflowX flex-row justify-content-start w-100 p-1" style="min-height: 80%">
+                  <button type="button" class="btn btn-outline-light" (click)="openLink(albumLink)">
+                    <i class="bi bi-music-note-beamed"></i>
+                    LastFM
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12" style="height: 60%">
+      <div class="row p-2" style="height: 96%">
+        <div class="col-12 dataSection mb-1" style="height: 10%"></div>
+        <div class="col-12 dataSection" style="height: 89%"></div>
+      </div>
+    </div>
+  </div>
+</div>

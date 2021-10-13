@@ -13,6 +13,7 @@ import { MainViewComponent } from './main-view/main-view.component';
 import {RouterModule, Routes} from "@angular/router";
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { AlbumDetailsComponent } from './album-details/album-details.component';
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     AlbumCardComponent,
     GenreTagComponent,
     MainViewComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    AlbumDetailsComponent
   ],
   imports: [
     BrowserModule,

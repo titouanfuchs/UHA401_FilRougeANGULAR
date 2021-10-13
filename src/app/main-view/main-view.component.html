@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="m-2 col-4 section h-100"> <!--Blank--></div>
+    <div class="m-2 col-5 section h-100"> <!--Blank--></div>
   </div>
   <div class="row justify-content-center" style="height: 90%">
     <div class="m-2 col-1 order-first sectionBackground shadow" style="height: 95%;max-height: 95%; max-width: 5%"> <!--Liens-->
@@ -41,10 +41,10 @@
       <app-group-card *ngFor="let groupe of groupes" [GroupID]="groupe['id']" [GroupName]="groupe['nom']" [GroupChanteur]="groupe['chanteur']" [GroupOrigin]="groupe['origin']" [GroupGenres]="groupe['genres']"></app-group-card>
     </div>
     <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Albums-->
-      <app-album-card *ngFor="let album of albums" [AlbumName]="album['nom']" [AlbumArtiste]="album['artiste']" [AlbumCover]="album['couverture']" [AlbumPiste]="album['pistes']" [AlbumSortie]="album['sortie']"></app-album-card>
+      <app-album-card *ngFor="let album of albums" [AlbumID]="album['id']" [AlbumName]="album['nom']" [AlbumArtiste]="album['artiste']" [AlbumCover]="album['couverture']" [AlbumPiste]="album['pistes']" [AlbumSortie]="album['sortie']"></app-album-card>
     </div>
-    <div class="m-2 col-4 section Background shadow" style="max-height: 95%"> <!--Details-->
-
+    <div class="m-2 col-5 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Details-->
+      <app-album-details></app-album-details>
     </div>
   </div>
 </div>
