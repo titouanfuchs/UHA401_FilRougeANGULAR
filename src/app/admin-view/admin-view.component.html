@@ -20,6 +20,7 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#clearDB"><i class="bi bi-radioactive"></i> Vider la base de données</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#fillDB"><i class="bi bi-cloud-download"></i> Remplir la base de données</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#totalDB"><i class="bi bi-recycle"></i> Tout faire</a></li>
               </ul>
             </div>
           </li>
@@ -27,6 +28,25 @@
       </div>
     </div>
   </nav>
+
+  <!-- Total DB Modal -->
+  <div class="modal fade" id="totalDB" tabindex="-1" aria-labelledby="clearDB" aria-hidden="true" style="color: black">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="totalDBLabel"><i class="bi bi-recycle"></i> Vider et remplire la base de données</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <i class="bi bi-exclamation-triangle"></i> Cette action va initier le vidage et le remplissage de toutes les tables de la base de données
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" (click)="callBDDAction(2)">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Clear DB Modal -->
   <div class="modal fade" id="clearDB" tabindex="-1" aria-labelledby="clearDB" aria-hidden="true" style="color: black">
@@ -60,7 +80,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loading">Valider</button>
+          <button type="button" class="btn btn-primary" (click)="callBDDAction(1)">Valider</button>
         </div>
       </div>
     </div>
@@ -74,7 +94,7 @@
           <h5 class="modal-title" id="endDBModal">Résumé</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="resumeMessage">
 
         </div>
         <div class="modal-footer">

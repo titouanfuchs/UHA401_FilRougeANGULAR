@@ -5,6 +5,14 @@
       "^/api": ""
     },
     "secure": false
+  },
+
+  "/DB": {
+    "target": "http://localhost:80/fil-rouge-titouan-2021/dbBuild",
+    "pathRewrite": {
+      "^/DB": ""
+    },
+    "secure": false
   }
 }
 

@@ -17,6 +17,7 @@ import { AlbumDetailsComponent } from './album-details/album-details.component';
 import {DetailsService} from "./services/detailsService/details.service";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BasicModalInteractionComponent } from './basic-modal-interaction/basic-modal-interaction.component';
+import {AdminModalManagerService} from "./services/adminModalManager/admin-modal-manager.service";
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     NgbModule
   ],
-  providers: [GroupesService, AlbumsService, DetailsService,HttpClient],
+  providers: [GroupesService, AlbumsService, AdminModalManagerService,DetailsService,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

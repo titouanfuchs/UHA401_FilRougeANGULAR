@@ -1,4 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
 
 @Component({
   selector: 'app-admin-view',
@@ -6,26 +7,47 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./admin-view.component.scss']
 })
 export class AdminViewComponent implements OnInit {
-  constructor() { }
+  constructor(private adminService:AdminModalManagerService) { }
 
   callBDDAction(action:number){
-    let triggerLoadButton: any = document.getElementById("triggerLoadModal");
-    let triggerResumeButton: any = document.getElementById("triggerResumeModal");
     switch (action){
       case 0:
-        console.log("Calling ClearBDD");
-        if (triggerLoadButton != null){
-          triggerLoadButton.click();
-          setTimeout(() =>{
-            if (triggerResumeButton != null){
-              triggerResumeButton.click();
-            }
-          }, 5000)
-        }
+        this.contactBDD("clear");
         break;
       case 1:
-        console.log("Calling FillBDD");
+        this.contactBDD("fill");
         break;
+      case 2:
+        this.contactBDD("");
+        break;
+    }
+  }
+
+  contactBDD(action:string){
+    let triggerLoadButton: any = document.getElementById("triggerLoadModal");
+    if (triggerLoadButton != null){
+      triggerLoadButton.click();
+      this.adminService.BDD(action).subscribe((result) => {
+        setTimeout(() =>{
+          this.showResumeModal(result);
+        }, 1000)
+      })
+    }
+  }
+
+  showResumeModal(message:any){
+    let triggerResumeButton: any = document.getElementById("triggerResumeModal");
+    let resumeMessage: any = document.getElementById("resumeMessage");
+
+    if (triggerResumeButton != null && resumeMessage != null){
+      resumeMessage.innerHTML = "<ul>";
+      let keys: string[] = Object.keys(message);
+
+      for (let key of keys){
+        console.log(key);
+        resumeMessage.innerHTML += "<li>" + key + " : " + message[key] + "</li>";
+      }
+      triggerResumeButton.click();
     }
   }
 
