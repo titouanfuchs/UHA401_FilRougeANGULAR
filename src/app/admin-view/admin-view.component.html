@@ -8,10 +8,91 @@
             <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house"></i> Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Link</a>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-activity"></i> Base de données
+              </a>
+              <ul class="dropdown-menu user-select-none" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item">Albums</a></li>
+                <li><a class="dropdown-item">Groupes</a></li>
+                <li><a class="dropdown-item">Details</a></li>
+                <li><a class="dropdown-item">Genres</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#clearDB"><i class="bi bi-radioactive"></i> Vider la base de données</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#fillDB"><i class="bi bi-cloud-download"></i> Remplir la base de données</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- Clear DB Modal -->
+  <div class="modal fade" id="clearDB" tabindex="-1" aria-labelledby="clearDB" aria-hidden="true" style="color: black">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="clearModalLabel"><i class="bi bi-radioactive"></i> Vider la base de données</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <i class="bi bi-exclamation-triangle"></i> Cette action va initier le vidage de toutes les tables de la base de données
+        </div>
+        <app-basic-modal-interaction></app-basic-modal-interaction>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fill DB Modal -->
+  <div class="modal fade" id="fillDB" tabindex="-1" aria-labelledby="clearDB" aria-hidden="true" style="color: black">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fillDBModal"><i class="bi bi-cloud-download"></i> Remplir la base de données</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <i class="bi bi-exclamation-triangle"></i> Cette action va initier le remplissage de toutes les tables de la base de données
+        </div>
+        <app-basic-modal-interaction></app-basic-modal-interaction>
+      </div>
+    </div>
+  </div>
+
+  <!-- End DB Modal -->
+  <div class="modal fade" id="endDB" tabindex="-1" aria-labelledby="clearDB" aria-hidden="true" style="color: black">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="endDBModal">Résumé</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finir</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="loading" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="color: black">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loadingLabel">
+            Chargement...
+            <div class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+            </div>
+          </h5>
+        </div>
+        <div class="modal-body">
+          <div style="width:100%;height:0;padding-bottom:83%;position:relative;"><iframe src="https://giphy.com/embed/QPQ3xlJhqR1BXl89RG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/QPQ3xlJhqR1BXl89RG">via GIPHY</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a [hidden]="true" id="triggerLoadModal" data-bs-toggle="modal" data-bs-target="#fillDB"></a>
 </div>
