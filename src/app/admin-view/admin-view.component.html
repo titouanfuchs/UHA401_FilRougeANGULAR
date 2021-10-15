@@ -39,7 +39,10 @@
         <div class="modal-body">
           <i class="bi bi-exclamation-triangle"></i> Cette action va initier le vidage de toutes les tables de la base de données
         </div>
-        <app-basic-modal-interaction></app-basic-modal-interaction>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" (click)="callBDDAction(0)">Valider</button>
+        </div>
       </div>
     </div>
   </div>
@@ -55,7 +58,10 @@
         <div class="modal-body">
           <i class="bi bi-exclamation-triangle"></i> Cette action va initier le remplissage de toutes les tables de la base de données
         </div>
-        <app-basic-modal-interaction></app-basic-modal-interaction>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loading">Valider</button>
+        </div>
       </div>
     </div>
   </div>
@@ -71,11 +77,14 @@
         <div class="modal-body">
 
         </div>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finir</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finir</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <!--LoadingModal-->
   <div class="modal fade" id="loading" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="color: black">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -88,11 +97,12 @@
           </h5>
         </div>
         <div class="modal-body">
-          <div style="width:100%;height:0;padding-bottom:83%;position:relative;"><iframe src="https://giphy.com/embed/QPQ3xlJhqR1BXl89RG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/QPQ3xlJhqR1BXl89RG">via GIPHY</a></p>
+          <img src="https://c.tenor.com/rec5dlPBK2cAAAAd/mr-bean-waiting.gif" width="100%">
         </div>
       </div>
     </div>
   </div>
 
-  <a [hidden]="true" id="triggerLoadModal" data-bs-toggle="modal" data-bs-target="#fillDB"></a>
+  <a [hidden]="true" id="triggerLoadModal" data-bs-toggle="modal" data-bs-target="#loading"></a>
+  <a [hidden]="true" id="triggerResumeModal" data-bs-toggle="modal" data-bs-target="#endDB"></a>
 </div>
