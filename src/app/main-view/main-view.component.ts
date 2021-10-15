@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GroupesService } from "../services/groupesService/groupes.service";
 import { AlbumsService } from "../services/albumsService/albums.service";
 import {Subscription} from "rxjs";
+import {DetailsService} from "../services/detailsService/details.service";
 
 @Component({
   selector: 'app-main-view',
@@ -12,10 +13,13 @@ export class MainViewComponent implements OnInit {
 
   groupes: any[] = [];
   albums: any[] = [];
+  details: any = [];
+
   groupeSubscription: Subscription = new Subscription();
   albumSubscription: Subscription = new Subscription();
+  detailsSubscription: Subscription = new Subscription();
 
-  constructor(private groupeService: GroupesService, private albumService:AlbumsService) {
+  constructor(private groupeService: GroupesService, private albumService:AlbumsService, private detailsService:DetailsService) {
     this.groupeService.searchGroupe("");
     this.albumService.searchAlbum("");
   }
@@ -38,6 +42,12 @@ export class MainViewComponent implements OnInit {
     this.groupeSubscription = this.groupeService.groupeSubject.subscribe(
       (gr:any[]) => {
         this.groupes = gr;
+      }
+    )
+
+    this.detailsSubscription = this.detailsService.detailsSubject.subscribe(
+      (dt:any[]) =>{
+        this.details = dt[0];
       }
     )
   }

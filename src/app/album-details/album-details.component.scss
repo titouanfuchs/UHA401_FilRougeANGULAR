@@ -18,7 +18,31 @@
 }
 
 .albumCover{
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: auto;
+}
+
+@mixin animate($animation,$duration){
+  animation: $animation $duration;
+}
+
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content;
+  }
+}
+
+.introAnim{
+  @include keyframes(introAnim){
+    from{
+      opacity: 0%;
+      margin-top: 100px;
+    }
+    to{
+      opacity: 100%;
+      margin-top: 0px;
+    }
+  }
+  @include animate(introAnim, 1s);
 }
 

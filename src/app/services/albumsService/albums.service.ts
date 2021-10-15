@@ -28,7 +28,7 @@ export class AlbumsService {
   }
 
   getAlbumByID(albumID:number): Observable<any>{
-    return this.httpClient.get("api/albums/" + albumID);
+    return this.httpClient.get("api/albums?album=" + albumID);
   }
 
   searchAlbum(searcharg:string){

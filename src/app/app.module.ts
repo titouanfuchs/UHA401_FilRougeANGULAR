@@ -15,6 +15,7 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import {DetailsService} from "./services/detailsService/details.service";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule
   ],
   providers: [GroupesService, AlbumsService, DetailsService,HttpClient],
   bootstrap: [AppComponent]

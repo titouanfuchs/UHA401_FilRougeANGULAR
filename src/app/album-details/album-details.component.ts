@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AlbumDetailsComponent implements OnInit {
 
   @Input() correspondingAlbum: any = {"nom":"Album Sans nom", "couverture": "ahahahahahahaahahahhahahah"} ;
-  @Input() albumTracks: any[] = [];
+  @Input() albumDescription: string = "Pas de description";
   @Input() albumLink: string = "https://www.last.fm/home";
 
   constructor() { }

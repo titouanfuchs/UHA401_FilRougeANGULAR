@@ -43,8 +43,8 @@
     <div class="m-2 col-3 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Albums-->
       <app-album-card *ngFor="let album of albums" [AlbumID]="album['id']" [AlbumName]="album['nom']" [AlbumArtiste]="album['artiste']" [AlbumCover]="album['couverture']" [AlbumPiste]="album['pistes']" [AlbumSortie]="album['sortie']"></app-album-card>
     </div>
-    <div class="m-2 col-5 p-2 overflow-auto justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Details-->
-      <app-album-details></app-album-details>
+    <div class="m-2 col-5 p-2 overflow-hidden justify-content-center sectionBackground shadow" style="max-height: 95%"> <!--Details-->
+      <app-album-details *ngIf="details['isDetails'] === 1" [albumLink]="details['details']['lastfm']" [correspondingAlbum]="details['currentAlbum']" [albumDescription]="details['details']['description']"></app-album-details>
     </div>
   </div>
 </div>
