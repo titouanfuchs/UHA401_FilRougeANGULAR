@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BasicModalInteractionComponent } from './basic-modal-interaction/basic-modal-interaction.component';
 import {AdminModalManagerService} from "./services/adminModalManager/admin-modal-manager.service";
 import { DbViewComponent } from './db-view/db-view.component';
+import { AddDetailsComponent } from './add-details/add-details.component';
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     AlbumDetailsComponent,
     BasicModalInteractionComponent,
     DbViewComponent,
+    AddDetailsComponent,
   ],
   imports: [
     BrowserModule,

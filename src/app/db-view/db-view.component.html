@@ -24,7 +24,23 @@
       </div>
     </div>
     <div class="col cardNoW">
-      test
+      <button type="button" class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#addData"><i class="bi bi-plus-square-dotted"></i> Ajouter</button>
     </div>
   </div>
 </div>
+
+<!-- add Data -->
+<div class="modal fade" id="addData" tabindex="-1" aria-labelledby="addDataModalLabel" aria-hidden="true" style="color: black">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addDataModalLabel">Ajouter des données dans : {{apiName}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-details *ngIf="apiName === 'details'"></app-add-details>
+      </div>
+    </div>
+  </div>
+</div>
+

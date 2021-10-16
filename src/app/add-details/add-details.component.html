@@ -1,0 +1,22 @@
+<form>
+  <div class="mb-3">
+    <select class="form-select" aria-label="Default select example" id="albumSelect" required="required">
+      <option selected>Selectionner un album...</option>
+      <option *ngFor="let album of albums; let i = index" value="{{i}}" (click)="this.updateData('album', i.toString())">{{album['nom']}} - {{album['artiste']}}</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text"><i class="bi bi-music-note-list"></i> LastFM</span>
+    <input type="text" class="form-control" aria-label="lastFM" placeholder="www.last.fm/music/group/album" required="required" id="lastFM" (keyup)="this.onLastFmUpdate($event)">
+  </div>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-card-text"></i> Description</span>
+    <textarea class="form-control" aria-label="Description" required="required" id="description" (keyup)="this.onDescriptionUpdate($event)"></textarea>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="this.initPostToDetails()">Valider</button>
+  </div>
+</form>
