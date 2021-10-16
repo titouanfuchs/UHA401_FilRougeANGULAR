@@ -97,6 +97,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: #f5f
   width: 100%;
 }
 
+.cardNoW{
+  background-color: rgba(245, 245, 245, 0.05);
+  border-radius: 5px;
+  height: fit-content;
+}
+
 @mixin animate($animation,$duration){
   animation: $animation $duration;
 }
