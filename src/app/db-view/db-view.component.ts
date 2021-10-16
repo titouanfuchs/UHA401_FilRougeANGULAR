@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DbViewComponent implements OnInit {
 
   keys = ["id", "test", "test2", "test3"]
+  lenght = (100/this.keys.length).toString() + "%";
 
   constructor() { }
 

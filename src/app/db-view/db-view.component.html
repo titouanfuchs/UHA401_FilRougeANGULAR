@@ -1,12 +1,22 @@
 <div class="container-fluid">
   <div class="row borderBlack">
     <div class="col-10 cardNoW me-1 p-1">
-      <div class="table table-striped">
-        <thead>
+      <div class="table-responsive w-100">
+        <div class="table table-striped w-100">
+          <thead>
           <tr>
             <th *ngFor="let key of keys" scope="col">{{key}}</th>
           </tr>
-        </thead>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          </tbody>
+        </div>
       </div>
     </div>
     <div class="col cardNoW">
