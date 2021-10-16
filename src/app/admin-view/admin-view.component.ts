@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges} from '@angular/core';
 import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
+import {Subject, Subscription} from "rxjs";
+import {ApiTablesService} from "../services/apiTablesService/api-tables.service";
 
 @Component({
   selector: 'app-admin-view',
@@ -7,7 +9,20 @@ import {AdminModalManagerService} from "../services/adminModalManager/admin-moda
   styleUrls: ['./admin-view.component.scss']
 })
 export class AdminViewComponent implements OnInit {
-  constructor(private adminService:AdminModalManagerService) { }
+  showAPI: number = 0;
+  currentAPI: string = "no";
+
+  apiSubscription: Subscription = new Subscription();
+
+  constructor(private adminService:AdminModalManagerService, private apiService:ApiTablesService) { }
+
+  showApi(api:string){
+    this.apiService.api(1, api);
+  }
+
+  hideApi(){
+    this.apiService.api(0);
+  }
 
   callBDDAction(action:number){
     switch (action){
@@ -52,6 +67,11 @@ export class AdminViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.apiSubscription = this.apiService.apiSubject.subscribe(
+      (d:any) => {
+        this.currentAPI = d['api'];
+        this.showAPI = d['show']
+      }
+    )
   }
-
 }

@@ -7,16 +7,18 @@
           <li class="nav-item" style="min-width: 80px">
             <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house"></i> Accueil</a>
           </li>
+          <li class="nav-item" style="min-width: 80px">
+            <a class="nav-link" aria-current="page" role="button" (click)="this.hideApi()"><i class="bi bi-sliders"></i> Dashboard</a>
+          </li>
           <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-activity"></i> Base de données
               </a>
               <ul class="dropdown-menu user-select-none" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item">Albums</a></li>
-                <li><a class="dropdown-item">Groupes</a></li>
-                <li><a class="dropdown-item">Details</a></li>
-                <li><a class="dropdown-item">Genres</a></li>
+                <li><a class="dropdown-item" (click)="this.showApi('albums')">Albums</a></li>
+                <li><a class="dropdown-item" (click)="this.showApi('groupes')">Groupes</a></li>
+                <li><a class="dropdown-item" (click)="this.showApi('details')">Details</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#clearDB"><i class="bi bi-radioactive"></i> Vider la base de données</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#fillDB"><i class="bi bi-cloud-download"></i> Remplir la base de données</a></li>
@@ -29,7 +31,7 @@
     </div>
   </nav>
 
-  <app-db-view></app-db-view>
+  <app-db-view *ngIf="showAPI===1" [apiName]="currentAPI"></app-db-view>
 
   <!-- Total DB Modal -->
   <div class="modal fade" id="totalDB" tabindex="-1" aria-labelledby="clearDB" aria-hidden="true" style="color: black">
