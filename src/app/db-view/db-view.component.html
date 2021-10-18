@@ -13,11 +13,15 @@
           <thead>
             <tr>
               <th *ngFor="let key of keys" scope="col">{{key}}</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
           <tr *ngFor="let data of APIContent">
             <td *ngFor="let d of keys">{{data[d]}}</td>
+            <td><button type="button" class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#editData"><i class="bi bi-pencil"></i> Modifier</button></td>
+            <td><button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#suppData"><i class="bi bi-trash"></i> Supprimer</button></td>
           </tr>
           </tbody>
         </div>

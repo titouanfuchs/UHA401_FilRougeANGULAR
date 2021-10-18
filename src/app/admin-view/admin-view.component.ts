@@ -33,7 +33,7 @@ export class AdminViewComponent implements OnInit {
         this.contactBDD("fill");
         break;
       case 2:
-        this.contactBDD("");
+        this.contactBDD("total");
         break;
     }
   }
@@ -42,27 +42,11 @@ export class AdminViewComponent implements OnInit {
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();
-      this.adminService.BDD(action).subscribe((result) => {
+      this.adminService.BDD(action).subscribe((result:any) => {
         setTimeout(() =>{
-          this.showResumeModal(result);
+          this.adminService.showResumeModal(result);
         }, 1000)
       })
-    }
-  }
-
-  showResumeModal(message:any){
-    let triggerResumeButton: any = document.getElementById("triggerResumeModal");
-    let resumeMessage: any = document.getElementById("resumeMessage");
-
-    if (triggerResumeButton != null && resumeMessage != null){
-      resumeMessage.innerHTML = "<ul>";
-      let keys: string[] = Object.keys(message);
-
-      for (let key of keys){
-        console.log(key);
-        resumeMessage.innerHTML += "<li>" + key + " : " + message[key] + "</li>";
-      }
-      triggerResumeButton.click();
     }
   }
 

@@ -4,6 +4,7 @@
     "pathRewrite": {
       "^/api": ""
     },
+    "logLevel": "debug",
     "secure": false
   },
 
@@ -12,6 +13,7 @@
     "pathRewrite": {
       "^/DB": ""
     },
+    "logLevel": "debug",
     "secure": false
   }
 }

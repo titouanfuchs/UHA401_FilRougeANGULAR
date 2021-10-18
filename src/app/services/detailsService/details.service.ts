@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Subject} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -34,4 +34,17 @@ export class DetailsService {
       });
   }
 
+  postAlbumDetails(details:any): Observable<any>{
+    const httpOptions = {
+      headers: {"Content-Type":"application/json","Authorization": "Parcequejailedroit"}
+    };
+    let result:any = [];
+
+    try{
+      result = this.httpClient.post("api/details", details, httpOptions);
+    }catch (e){
+      result['error'] = e;
+    }
+    return result;
+  }
 }

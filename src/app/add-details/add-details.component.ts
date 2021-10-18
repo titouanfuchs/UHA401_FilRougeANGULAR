@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AlbumsService} from "../services/albumsService/albums.service";
 import {Subscription} from "rxjs";
 import {DetailsService} from "../services/detailsService/details.service";
+import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
 
 @Component({
   selector: 'app-add-details',
@@ -15,7 +16,7 @@ export class AddDetailsComponent implements OnInit {
   albumsSubscribe: Subscription = new Subscription();
   albums = [];
 
-  constructor(private albumService:AlbumsService, private detailsService:DetailsService) { }
+  constructor(private albumService:AlbumsService, private detailsService:DetailsService, private adminService:AdminModalManagerService) { }
 
   ngOnInit(): void {
     this.albumsSubscribe = this.albumService.albumSubject.subscribe((al:any) => {
@@ -41,9 +42,11 @@ export class AddDetailsComponent implements OnInit {
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();
-      setTimeout(() =>{
-
-      }, 1000)
+      this.detailsService.postAlbumDetails(this.data).subscribe((result:any) => {
+        setTimeout(() =>{
+          this.adminService.showResumeModal(result);
+        }, 1000)
+      })
     }
   }
 }

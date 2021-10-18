@@ -2,7 +2,7 @@
   <div class="mb-3">
     <select class="form-select" aria-label="Default select example" id="albumSelect" required="required">
       <option selected>Selectionner un album...</option>
-      <option *ngFor="let album of albums; let i = index" value="{{i}}" (click)="this.updateData('album', i.toString())">{{album['nom']}} - {{album['artiste']}}</option>
+      <option *ngFor="let album of albums; let i = index" value="{{i}}" (click)="this.updateData('album', album['id'])">{{album['nom']}} - {{album['artiste']}}</option>
     </select>
   </div>
 
