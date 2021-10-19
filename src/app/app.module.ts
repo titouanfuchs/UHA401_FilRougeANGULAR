@@ -20,6 +20,7 @@ import { BasicModalInteractionComponent } from './basic-modal-interaction/basic-
 import {AdminModalManagerService} from "./services/adminModalManager/admin-modal-manager.service";
 import { DbViewComponent } from './db-view/db-view.component';
 import { AddDetailsComponent } from './add-details/add-details.component';
+import { RemoveDetailsComponent } from './remove-details/remove-details.component';
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     BasicModalInteractionComponent,
     DbViewComponent,
     AddDetailsComponent,
+    RemoveDetailsComponent,
   ],
   imports: [
     BrowserModule,

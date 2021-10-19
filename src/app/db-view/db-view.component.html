@@ -21,7 +21,7 @@
           <tr *ngFor="let data of APIContent">
             <td *ngFor="let d of keys">{{data[d]}}</td>
             <td><button type="button" class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#editData"><i class="bi bi-pencil"></i> Modifier</button></td>
-            <td><button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#suppData"><i class="bi bi-trash"></i> Supprimer</button></td>
+            <td><button type="button" class="btn btn-outline-danger w-100" (click)="showDeleteModal(data['album'])"><i class="bi bi-trash"></i> Supprimer</button></td>
           </tr>
           </tbody>
         </div>
@@ -42,9 +42,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <app-add-details *ngIf="apiName === 'details'"></app-add-details>
+        <app-add-details></app-add-details>
       </div>
     </div>
   </div>
 </div>
 
+<!-- supp Data -->
+<div class="modal fade" id="suppData" tabindex="-1" aria-labelledby="suppDataModalLabel" aria-hidden="true" style="color: black">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="suppDataModalLabel">Ajouter des données dans : {{apiName}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-remove-details [albumID]="this.albumID"></app-remove-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a [hidden]="true" id="TriggersuppData" data-bs-toggle="modal" data-bs-target="#suppData"></a>

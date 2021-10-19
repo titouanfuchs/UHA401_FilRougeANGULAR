@@ -38,7 +38,6 @@ export class AddDetailsComponent implements OnInit {
   }
 
   initPostToDetails(){
-    console.log(this.data);
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();

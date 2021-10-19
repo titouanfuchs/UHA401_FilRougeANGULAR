@@ -15,6 +15,10 @@ export class DetailsService {
     this.detailsSubject.next(this.details);
   }
 
+  getAlbumDetailsSimple(albumID:number){
+    return this.httpClient.get("api/details");
+  }
+
   getAlbumDetails(albumID:number, album:any){
     this.httpClient
       .get<any>("api/details/" + albumID)
@@ -42,6 +46,20 @@ export class DetailsService {
 
     try{
       result = this.httpClient.post("api/details", details, httpOptions);
+    }catch (e){
+      result['error'] = e;
+    }
+    return result;
+  }
+
+  deleteAlbumDetails(details:number): Observable<any>{
+    const httpOptions = {
+      headers: {"Content-Type":"application/json","Authorization": "Parcequejailedroit"}
+    };
+    let result:any = [];
+
+    try{
+      result = this.httpClient.delete("api/details/" + details, httpOptions);
     }catch (e){
       result['error'] = e;
     }

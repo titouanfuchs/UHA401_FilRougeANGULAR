@@ -1,0 +1,20 @@
+<form>
+  <div class="input-group mb-3">
+    <span class="input-group-text"><i class="bi bi-music-note-list"></i> Album</span>
+    <input type="text" class="form-control" aria-label="lastFM" placeholder="" required="required" id="album" value="{{this.details['album']}}" disabled>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text"><i class="bi bi-music-note-list"></i> LastFM</span>
+    <input type="text" class="form-control" aria-label="lastFM" placeholder="www.last.fm/music/group/album" required="required" id="lastFM" value="{{this.details['lastfm']}}" disabled>
+  </div>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-card-text"></i> Description</span>
+    <textarea class="form-control" aria-label="Description" required="required" id="description" disabled>{{this.details['description']}}</textarea>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="this.initDeleteData()">Valider</button>
+  </div>
+</form>

@@ -12,6 +12,8 @@ export class DbViewComponent implements OnInit, OnChanges {
   APIContent = [];
   keys:any = [];
 
+  albumID: number = 1;
+
   constructor(private adminService:AdminModalManagerService) { }
 
   reload(){
@@ -22,6 +24,15 @@ export class DbViewComponent implements OnInit, OnChanges {
     this.adminService.getAPI(this.apiName).subscribe((result:any) =>{
       this.APIContent = result;
     })
+  }
+
+  showDeleteModal(id:number){
+    this.albumID = id;
+    let triggerLoadButton: any = document.getElementById("TriggersuppData");
+
+    if (triggerLoadButton){
+      triggerLoadButton.click();
+    }
   }
 
   ngOnInit(): void {
