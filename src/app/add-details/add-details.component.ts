@@ -44,6 +44,7 @@ export class AddDetailsComponent implements OnInit {
       this.detailsService.postAlbumDetails(this.data).subscribe((result:any) => {
         setTimeout(() =>{
           this.adminService.showResumeModal(result);
+          this.adminService.askRefresh();
         }, 1000)
       })
     }

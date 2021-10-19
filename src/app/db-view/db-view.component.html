@@ -9,7 +9,7 @@
     </div>
     <div class="col-10 cardNoW me-1 p-1">
       <div class="table-responsive w-100">
-        <div class="table table-striped table-hover w-100">
+        <div class="table table-dark table-striped table-hover w-100">
           <thead>
             <tr>
               <th *ngFor="let key of keys" scope="col">{{key}}</th>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="col cardNoW">
-      <button type="button" class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#addData"><i class="bi bi-plus-square-dotted"></i> Ajouter</button>
+      <button type="button" class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#addData" (click)="showAddModal()"><i class="bi bi-plus-square-dotted"></i> Ajouter</button>
     </div>
   </div>
 </div>
@@ -42,7 +42,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <app-add-details></app-add-details>
+        <app-add-details *ngIf="showAdd"></app-add-details>
       </div>
     </div>
   </div>

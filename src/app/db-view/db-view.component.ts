@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-db-view',
@@ -7,16 +8,19 @@ import {AdminModalManagerService} from "../services/adminModalManager/admin-moda
   styleUrls: ['./db-view.component.scss']
 })
 export class DbViewComponent implements OnInit, OnChanges {
-
+  refreshSub: Subscription = new Subscription();
   @Input() apiName = "Pas d'api";
   APIContent = [];
   keys:any = [];
+
+  showAdd: boolean = false;
 
   albumID: number = 1;
 
   constructor(private adminService:AdminModalManagerService) { }
 
   reload(){
+    this.showAdd = false;
     this.adminService.getKeys(this.apiName).subscribe((result:any) => {
       this.keys = result;
     })
@@ -24,6 +28,10 @@ export class DbViewComponent implements OnInit, OnChanges {
     this.adminService.getAPI(this.apiName).subscribe((result:any) =>{
       this.APIContent = result;
     })
+  }
+
+  showAddModal(){
+    this.showAdd = true;
   }
 
   showDeleteModal(id:number){
@@ -36,6 +44,9 @@ export class DbViewComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.refreshSub = this.adminService.refreshComponent.subscribe(() =>{
+      this.reload();
+    });
     this.reload();
   }
 

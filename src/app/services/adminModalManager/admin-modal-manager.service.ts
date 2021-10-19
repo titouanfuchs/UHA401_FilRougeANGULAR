@@ -8,6 +8,8 @@ import {Observable, Subject} from "rxjs";
 export class AdminModalManagerService {
   constructor(private httpClient:HttpClient) { }
 
+  refreshComponent = new Subject<any[]>();
+
   BDD(action:string): Observable<any>{
     return this.httpClient.get("DB?action=" + action);
   }
@@ -18,6 +20,10 @@ export class AdminModalManagerService {
 
   getKeys(table:string) : Observable<any>{
     return this.httpClient.get("api/structure?table=" + table);
+  }
+
+  askRefresh(){
+    this.refreshComponent.next();
   }
 
   showResumeModal(message:any){
