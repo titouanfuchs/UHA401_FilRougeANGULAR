@@ -1,7 +1,7 @@
-<form>
+<form onsubmit="return false">
   <div class="mb-3">
     <select class="form-select" aria-label="Default select example" id="albumSelect" required="required">
-      <option selected>Selectionner un album...</option>
+      <option value="0" selected>Selectionner un album...</option>
       <option *ngFor="let album of albums; let i = index" value="{{i}}" (click)="this.updateData('album', album['id'])">{{album['nom']}} - {{album['artiste']}}</option>
     </select>
   </div>
@@ -17,6 +17,6 @@
 
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-    <button type="button" class="btn btn-primary" (click)="this.initPostToDetails()">Valider</button>
+    <button type="button" class="btn btn-primary" [disabled]="!this.checkValidity()" (click)="this.initPostToDetails()">Valider</button>
   </div>
 </form>

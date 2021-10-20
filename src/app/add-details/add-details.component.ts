@@ -12,6 +12,7 @@ import {AdminModalManagerService} from "../services/adminModalManager/admin-moda
 export class AddDetailsComponent implements OnInit {
 
   data:any = {"album": 0}
+  validity = [false, false, false];
 
   albumsSubscribe: Subscription = new Subscription();
   albums = [];
@@ -26,15 +27,22 @@ export class AddDetailsComponent implements OnInit {
   }
 
   updateData(key:string, val:string){
+    this.validity[0] = val != "0";
     this.data[key] = val;
   }
 
   onDescriptionUpdate(event:any){
+    this.validity[1] = event.target.value != "";
     this.data["description"] = event.target.value;
   }
 
   onLastFmUpdate(event:any){
+    this.validity[2] = event.target.value != "" && event.target.value.length < 1000;
     this.data["lastfm"] = event.target.value;
+  }
+
+  checkValidity(): boolean{
+    return this.validity[0] && this.validity[1] && this.validity[2];
   }
 
   initPostToDetails(){
