@@ -36,10 +36,19 @@ export class DbViewComponent implements OnInit, OnChanges {
 
   showDeleteModal(id:number){
     this.albumID = id;
-    let triggerLoadButton: any = document.getElementById("TriggersuppData");
+    let triggerModalButton: any = document.getElementById("TriggersuppData");
 
-    if (triggerLoadButton){
-      triggerLoadButton.click();
+    if (triggerModalButton){
+      triggerModalButton.click();
+    }
+  }
+
+  showEditModal(id:number){
+    this.albumID = id;
+    let triggerModalButton: any = document.getElementById("TriggereditData");
+
+    if (triggerModalButton){
+      triggerModalButton.click();
     }
   }
 

@@ -20,7 +20,7 @@
           <tbody>
           <tr *ngFor="let data of APIContent">
             <td *ngFor="let d of keys">{{data[d]}}</td>
-            <td><button type="button" class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#editData"><i class="bi bi-pencil"></i> Modifier</button></td>
+            <td><button type="button" class="btn btn-outline-warning w-100" (click)="showEditModal(data['album'])"><i class="bi bi-pencil"></i> Modifier</button></td>
             <td><button type="button" class="btn btn-outline-danger w-100" (click)="showDeleteModal(data['album'])"><i class="bi bi-trash"></i> Supprimer</button></td>
           </tr>
           </tbody>
@@ -53,7 +53,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="suppDataModalLabel">Ajouter des données dans : {{apiName}}</h5>
+        <h5 class="modal-title" id="suppDataModalLabel">Supprimer des données dans : {{apiName}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -63,4 +63,20 @@
   </div>
 </div>
 
+<!-- edit Data -->
+<div class="modal fade" id="editData" tabindex="-1" aria-labelledby="editDataModalLabel" aria-hidden="true" style="color: black">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editDataModalLabel">Modification des données dans des données dans : {{apiName}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-details [albumID]="this.albumID"></app-edit-details>
+      </div>
+    </div>
+  </div>
+</div>
+
 <a [hidden]="true" id="TriggersuppData" data-bs-toggle="modal" data-bs-target="#suppData"></a>
+<a [hidden]="true" id="TriggereditData" data-bs-toggle="modal" data-bs-target="#editData"></a>

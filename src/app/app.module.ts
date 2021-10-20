@@ -21,6 +21,7 @@ import {AdminModalManagerService} from "./services/adminModalManager/admin-modal
 import { DbViewComponent } from './db-view/db-view.component';
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { RemoveDetailsComponent } from './remove-details/remove-details.component';
+import { EditDetailsComponent } from './edit-details/edit-details.component';
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     DbViewComponent,
     AddDetailsComponent,
     RemoveDetailsComponent,
+    EditDetailsComponent,
   ],
   imports: [
     BrowserModule,

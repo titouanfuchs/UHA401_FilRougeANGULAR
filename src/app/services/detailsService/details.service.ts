@@ -52,6 +52,20 @@ export class DetailsService {
     return result;
   }
 
+  EditAlbumDetails(details:any): Observable<any>{
+    const httpOptions = {
+      headers: {"Content-Type":"application/json","Authorization": "Parcequejailedroit"}
+    };
+    let result:any = [];
+
+    try{
+      result = this.httpClient.put("api/details?album=" + details['album'], details, httpOptions);
+    }catch (e){
+      result['error'] = e;
+    }
+    return result;
+  }
+
   deleteAlbumDetails(details:number): Observable<any>{
     const httpOptions = {
       headers: {"Content-Type":"application/json","Authorization": "Parcequejailedroit"}
