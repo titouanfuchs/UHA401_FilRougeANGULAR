@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {DetailsService} from "../services/detailsService/details.service";
 import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
 import {AlbumsService} from "../services/albumsService/albums.service";
@@ -8,7 +8,7 @@ import {AlbumsService} from "../services/albumsService/albums.service";
   templateUrl: './edit-details.component.html',
   styleUrls: ['./edit-details.component.scss']
 })
-export class EditDetailsComponent implements OnInit {
+export class EditDetailsComponent implements OnInit, OnChanges {
 
   @Input() albumID: number = 0;
   details: any = {};
@@ -17,6 +17,14 @@ export class EditDetailsComponent implements OnInit {
   constructor(private detailsService:DetailsService, private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
 
   ngOnInit(): void {
+    this.update();
+  }
+
+  ngOnChanges(): void {
+    this.update();
+  }
+
+  update(){
     this.detailsService.getAlbumDetailsSimple(this.albumID).subscribe( (result:any) => {
       this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
         this.details = result[0];
@@ -27,10 +35,11 @@ export class EditDetailsComponent implements OnInit {
 
   initEditData(){
     this.details['album'] = this.albumID;
+    console.log(this.details);
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();
-      this.detailsService.EditAlbumDetails(this.details).subscribe((result:any) => {
+      this.detailsService.EditAlbumDetails(this.albumID).subscribe((result:any) => {
         setTimeout(() =>{
           this.adminService.showResumeModal(result);
           this.adminService.askRefresh();

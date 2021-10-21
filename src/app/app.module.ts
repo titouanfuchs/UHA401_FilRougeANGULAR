@@ -22,6 +22,8 @@ import { DbViewComponent } from './db-view/db-view.component';
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { RemoveDetailsComponent } from './remove-details/remove-details.component';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
+import { TrackComponent } from './track/track.component';
+import {TrackService} from "./services/trackService/track.service";
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
     AddDetailsComponent,
     RemoveDetailsComponent,
     EditDetailsComponent,
+    TrackComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     NgbModule
   ],
-  providers: [GroupesService, AlbumsService, AdminModalManagerService,DetailsService,HttpClient],
+  providers: [GroupesService, AlbumsService, AdminModalManagerService,DetailsService, TrackService,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

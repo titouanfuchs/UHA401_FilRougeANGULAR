@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {DetailsService} from "../services/detailsService/details.service";
 import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
 import {AlbumsService} from "../services/albumsService/albums.service";
@@ -9,13 +9,21 @@ import {Subscription} from "rxjs";
   templateUrl: './remove-details.component.html',
   styleUrls: ['./remove-details.component.scss']
 })
-export class RemoveDetailsComponent implements OnInit {
+export class RemoveDetailsComponent implements OnInit, OnChanges {
   constructor( private detailsService:DetailsService, private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
 
   @Input() albumID: number = 0;
   details: any = {};
 
   ngOnInit(): void {
+    this.update();
+  }
+
+  ngOnChanges(): void {
+    this.update();
+  }
+
+  update(){
     this.detailsService.getAlbumDetailsSimple(this.albumID).subscribe( (result:any) => {
       this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
         this.details = result[0];

@@ -12,14 +12,14 @@
         <div class="table table-dark table-striped table-hover w-100">
           <thead>
             <tr>
-              <th *ngFor="let key of keys" scope="col">{{key}}</th>
+              <th *ngFor="let key of keys" [hidden]="key === 'id'" scope="col">{{key}}</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
           <tr *ngFor="let data of APIContent">
-            <td *ngFor="let d of keys">{{data[d]}}</td>
+            <td *ngFor="let d of keys" [hidden]="d === 'id'">{{data[d]}}</td>
             <td><button type="button" class="btn btn-outline-warning w-100" (click)="showEditModal(data['album'])"><i class="bi bi-pencil"></i> Modifier</button></td>
             <td><button type="button" class="btn btn-outline-danger w-100" (click)="showDeleteModal(data['album'])"><i class="bi bi-trash"></i> Supprimer</button></td>
           </tr>

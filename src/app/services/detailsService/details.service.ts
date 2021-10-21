@@ -16,7 +16,7 @@ export class DetailsService {
   }
 
   getAlbumDetailsSimple(albumID:number){
-    return this.httpClient.get("api/details");
+    return this.httpClient.get("api/details/" + albumID);
   }
 
   getAlbumDetails(albumID:number, album:any){
