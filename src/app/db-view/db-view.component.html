@@ -19,9 +19,14 @@
           </thead>
           <tbody>
           <tr *ngFor="let data of APIContent">
-            <td *ngFor="let d of keys" [hidden]="d === 'id'">{{data[d]}}</td>
-            <td><button type="button" class="btn btn-outline-warning w-100" (click)="showEditModal(data['album'])"><i class="bi bi-pencil"></i> Modifier</button></td>
-            <td><button type="button" class="btn btn-outline-danger w-100" (click)="showDeleteModal(data['album'])"><i class="bi bi-trash"></i> Supprimer</button></td>
+            <td *ngFor="let d of keys" [hidden]="d === 'id' || d === 'albumID'">
+              <div *ngIf="d === 'tracks'; else elseBlock">
+                <app-track-tag *ngFor="let track of parseJSON(data[d])" [track]="track"></app-track-tag>
+              </div>
+              <ng-template #elseBlock>{{data[d]}}</ng-template>
+            </td>
+            <td><button type="button" class="btn btn-outline-warning w-100" (click)="showEditModal(data['albumID'])"><i class="bi bi-pencil"></i> Modifier</button></td>
+            <td><button type="button" class="btn btn-outline-danger w-100" (click)="showDeleteModal(data['albumID'])"><i class="bi bi-trash"></i> Supprimer</button></td>
           </tr>
           </tbody>
         </div>

@@ -24,6 +24,10 @@ import { RemoveDetailsComponent } from './remove-details/remove-details.componen
 import { EditDetailsComponent } from './edit-details/edit-details.component';
 import { TrackComponent } from './track/track.component';
 import {TrackService} from "./services/trackService/track.service";
+import { TrackEditComponent } from './track-edit/track-edit.component';
+import { TrackTagComponent } from './track-tag/track-tag.component';
+import { TextBlockComponent } from './text-block/text-block.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 const appRoutes: Routes = [
   { path: 'main', component:MainViewComponent},
@@ -46,6 +50,9 @@ const appRoutes: Routes = [
     RemoveDetailsComponent,
     EditDetailsComponent,
     TrackComponent,
+    TrackEditComponent,
+    TrackTagComponent,
+    TextBlockComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    NgbModule
+    NgbModule,
+    MatTooltipModule
   ],
   providers: [GroupesService, AlbumsService, AdminModalManagerService,DetailsService, TrackService,HttpClient],
   bootstrap: [AppComponent]

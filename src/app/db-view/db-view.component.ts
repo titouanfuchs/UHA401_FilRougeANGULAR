@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
 import {Subscription} from "rxjs";
+import {AlbumsService} from "../services/albumsService/albums.service";
 
 @Component({
   selector: 'app-db-view',
@@ -10,6 +11,7 @@ import {Subscription} from "rxjs";
 export class DbViewComponent implements OnInit, OnChanges {
   refreshSub: Subscription = new Subscription();
   @Input() apiName = "Pas d'api";
+
   APIContent = [];
   keys:any = [];
 
@@ -17,7 +19,7 @@ export class DbViewComponent implements OnInit, OnChanges {
 
   albumID: number = 1;
 
-  constructor(private adminService:AdminModalManagerService) { }
+  constructor(private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
 
   reload(){
     this.showAdd = false;
@@ -26,6 +28,13 @@ export class DbViewComponent implements OnInit, OnChanges {
     })
 
     this.adminService.getAPI(this.apiName).subscribe((result:any) =>{
+      for(let album of result){
+        this.albumService.getAlbumByID(result['album']).subscribe((al:any) =>{
+          album['albumID'] = album['album'];
+          album['album'] = al;
+        })
+      }
+
       this.APIContent = result;
     })
   }
@@ -52,11 +61,15 @@ export class DbViewComponent implements OnInit, OnChanges {
     }
   }
 
+  parseJSON(data:string): any{
+    return JSON.parse(data);
+  }
+
   ngOnInit(): void {
     this.refreshSub = this.adminService.refreshComponent.subscribe(() =>{
       this.reload();
     });
-    this.reload();
+    //this.reload();
   }
 
   ngOnChanges() {

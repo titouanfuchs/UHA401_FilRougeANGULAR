@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {DetailsService} from "../services/detailsService/details.service";
 import {AdminModalManagerService} from "../services/adminModalManager/admin-modal-manager.service";
 import {AlbumsService} from "../services/albumsService/albums.service";
+import {TrackService} from "../services/trackService/track.service";
 
 @Component({
   selector: 'app-edit-details',
@@ -14,7 +15,7 @@ export class EditDetailsComponent implements OnInit, OnChanges {
   details: any = {};
   validity = [true, true];
 
-  constructor(private detailsService:DetailsService, private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
+  constructor(private trackService:TrackService,private detailsService:DetailsService, private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
 
   ngOnInit(): void {
     this.update();
@@ -29,13 +30,16 @@ export class EditDetailsComponent implements OnInit, OnChanges {
       this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
         this.details = result[0];
         this.details['album'] = album[0]['nom'] + " - " + album[0]['artiste'];
+        this.trackService.tracks = JSON.parse(this.details['tracks']);
       })
     });
   }
 
   initEditData(){
     this.details['album'] = this.albumID;
-    console.log(this.details);
+    if (this.trackService.tracks.length > 0){
+      this.details['tracks'] = this.trackService.tracks;
+    }
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();

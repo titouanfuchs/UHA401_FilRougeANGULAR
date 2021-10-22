@@ -14,9 +14,7 @@ export class AddDetailsComponent implements OnInit {
 
   data:any = {"album": 0}
   validity = [false, false, false];
-
-  ShowTrack:boolean = false;
-  TrackToShow:number = 0;
+  default:string = "";
 
   albumsSubscribe: Subscription = new Subscription();
   albums = [];
@@ -28,20 +26,13 @@ export class AddDetailsComponent implements OnInit {
   }
 
   init(){
+    this.default = "init";
     this.albumsSubscribe = this.albumService.albumSubject.subscribe((al:any) => {
       this.albums = al;
       this.trackService.tracks = [];
+      this.default = "";
     })
     this.albumService.searchAlbum("");
-  }
-
-  addTrack(){
-    this.trackService.tracks.push({'albumID': this.data['album'], 'trackNum':  this.trackService.tracks.length + 1, 'nom': 'Piste Sans nom', 'duree':'00:00'});
-  }
-
-  showTrack(id:number){
-    this.TrackToShow = id;
-    this.ShowTrack = true;
   }
 
   updateData(key:string, val:string){
@@ -68,6 +59,10 @@ export class AddDetailsComponent implements OnInit {
   }
 
   initPostToDetails(){
+    if (this.trackService.tracks.length > 0){
+      this.data['tracks'] = this.trackService.tracks;
+    }
+
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();

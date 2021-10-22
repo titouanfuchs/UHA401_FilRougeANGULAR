@@ -140,3 +140,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: #f5f
   }
   @include animate(slidInToBot, 1s);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

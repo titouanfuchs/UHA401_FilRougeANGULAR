@@ -2,27 +2,20 @@
   <div class="mb-3">
     <select class="form-select" aria-label="Default select example" id="albumSelect" required="required">
       <option value="0" selected>Selectionner un album...</option>
-      <option *ngFor="let album of albums; let i = index" value="{{i}}" (click)="this.updateData('album', album['id'])">{{album['nom']}} - {{album['artiste']}}</option>
+      <option *ngFor="let album of albums; let i = index" value="{{i}}" (click)="this.updateData('album', album['id'])">{{this.album['nom']}} - {{this.album['artiste']}}</option>
     </select>
   </div>
 
   <div class="input-group mb-3">
     <span class="input-group-text"><i class="bi bi-music-note-list"></i> LastFM</span>
-    <input type="text" class="form-control" aria-label="lastFM" placeholder="www.last.fm/music/group/album" required="required" id="lastFM" (keyup)="this.onLastFmUpdate($event)">
+    <input type="text" class="form-control" aria-label="lastFM" placeholder="www.last.fm/music/group/album" required="required" id="lastFM" (keyup)="this.onLastFmUpdate($event)" value="{{this.default}}">
   </div>
   <div class="input-group">
     <span class="input-group-text"><i class="bi bi-card-text"></i> Description</span>
-    <textarea class="form-control" aria-label="Description" required="required" id="description" (keyup)="this.onDescriptionUpdate($event)"></textarea>
+    <textarea class="form-control" aria-label="Description" required="required" id="description" (keyup)="this.onDescriptionUpdate($event)" value="{{this.default}}"></textarea>
   </div>
 
-  <div class="overflowY w-100 mt-3">
-    <button type="button" class="btn btn-secondary w-100 mb-1" (click)="this.addTrack()">+</button>
-    <div class="btn-group overflowX" role="group" aria-label="pagination" style="max-width: 100%">
-      <button type="button" class="btn btn-primary" *ngFor="let track of this.trackService.tracks; let i = index" (click)="showTrack(i)">{{i+1}}</button>
-    </div>
-
-    <app-track *ngIf="ShowTrack" [position]="TrackToShow" class="w-100"></app-track>
-  </div>
+  <app-track-edit [album]="this.data['album']" class="card mt-3"></app-track-edit>
 
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="init()">Annuler</button>

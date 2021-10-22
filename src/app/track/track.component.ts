@@ -21,9 +21,9 @@ export class TrackComponent implements OnInit, OnChanges {
   }
 
   updateData(key:string, value:string){
-    let field = document.getElementById(value);
+    let field = <HTMLInputElement>document.getElementById(value);
     if (field){
-      this.data[key] = field.innerText;
+      this.data[key] = field.value;
       this.trackService.tracks[this.position] = this.data;
     }
 

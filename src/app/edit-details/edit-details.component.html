@@ -13,6 +13,8 @@
     <textarea class="form-control" aria-label="Description" required="required" id="description" (keyup)="onDescriptionUpdate($event)">{{details['description']}}</textarea>
   </div>
 
+  <app-track-edit [album]="albumID"></app-track-edit>
+
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
     <button type="button" class="btn btn-primary" [disabled]="!checkValidity()" (click)="this.initEditData()">Valider</button>

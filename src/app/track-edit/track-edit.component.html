@@ -1,0 +1,9 @@
+<div class="overflowY w-100 mt-3">
+  <button type="button" class="btn btn-secondary w-100 mb-1" (click)="this.addTrack()">+</button>
+  <div class="btn-group overflowX mb-1" role="group" aria-label="pagination" style="max-width: 100%">
+    <button type="button" class="btn btn-outline-info" style="min-width: 200px" *ngFor="let track of this.trackService.tracks; let i = index" (click)="showTrack(i)">{{i+1}} - {{track['nom']}}</button>
+  </div>
+
+  <app-track *ngIf="ShowTrack" [position]="TrackToShow" class="w-100 "></app-track>
+</div>
+

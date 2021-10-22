@@ -1,16 +1,15 @@
-<div class="container-fluid mb-3 p-1 borderBlack">
+<div class="container-fluid mb-3 p-1">
   Piste : {{this.position + 1}}
   <div class="form-floating mb-3">
-    <input type="number" class="form-control" id="floatingPiste" placeholder="0" value="{{data['trackNum']}}" (change)="updateData('trackNum', 'floatingPiste')">
+    <input type="number" class="form-control" id="floatingPiste" placeholder="0" value="{{this.data['trackNum']}}" (change)="updateData('trackNum', 'floatingPiste')">
     <label for="floatingPiste">Numero de piste</label>
   </div>
   <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="floatingNom" placeholder="Nom..." value="{{data['nom']}}">
+    <input type="text" class="form-control" id="floatingNom" placeholder="Nom..." value="{{this.data['nom']}}" (change)="updateData('nom', 'floatingNom')">
     <label for="floatingNom">Nom de piste</label>
   </div>
   <div class="form-floating">
-    <input type="text" class="form-control" id="floatingDuree" placeholder="00:00" value="{{data['duree']}}">
+    <input type="text" class="form-control" id="floatingDuree" placeholder="00:00" value="{{this.data['duree']}}" (change)="updateData('duree', 'floatingDuree')">
     <label for="floatingNom">Durée de la piste</label>
   </div>
 </div>
-
