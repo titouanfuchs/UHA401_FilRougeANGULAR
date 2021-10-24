@@ -29,9 +29,9 @@ export class DbViewComponent implements OnInit, OnChanges {
 
     this.adminService.getAPI(this.apiName).subscribe((result:any) =>{
       for(let album of result){
-        this.albumService.getAlbumByID(result['album']).subscribe((al:any) =>{
+        this.albumService.getAlbumByID(result[0]['album']).subscribe((al:any) =>{
           album['albumID'] = album['album'];
-          album['album'] = al;
+          album['album'] = al[0]['nom'];
         })
       }
 

@@ -1,16 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-track-tag',
   templateUrl: './track-tag.component.html',
   styleUrls: ['./track-tag.component.scss']
 })
-export class TrackTagComponent implements OnInit {
+export class TrackTagComponent implements OnChanges {
 
   @Input() track:any = {};
+  tooltipText:string = "";
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    this.tooltipText = "Durée : " + this.track['duree'];
   }
 
 }
