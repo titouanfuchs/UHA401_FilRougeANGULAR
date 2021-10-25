@@ -1,0 +1,20 @@
+{
+  "/api": {
+    "target": "/API",
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug",
+    "secure": false
+  },
+
+  "/DB": {
+    "target": "/dbBuild",
+    "pathRewrite": {
+      "^/DB": ""
+    },
+    "logLevel": "debug",
+    "secure": false
+  }
+}
+

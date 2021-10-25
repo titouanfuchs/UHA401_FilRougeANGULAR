@@ -1,15 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-album-details',
   templateUrl: './album-details.component.html',
   styleUrls: ['./album-details.component.scss']
 })
-export class AlbumDetailsComponent implements OnInit {
+export class AlbumDetailsComponent implements OnInit, OnChanges {
 
   @Input() correspondingAlbum: any = {"nom":"Album Sans nom", "couverture": "ahahahahahahaahahahhahahah"} ;
   @Input() albumDescription: string = "Pas de description";
   @Input() albumLink: string = "https://www.last.fm/home";
+  @Input() albumTracks: string = "";
+  Tracks: string[] = [];
 
   constructor() { }
 
@@ -17,7 +19,11 @@ export class AlbumDetailsComponent implements OnInit {
     window.open(link);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  ngOnChanges(): void {
+    this.Tracks = JSON.parse(this.albumTracks);
   }
 
 }

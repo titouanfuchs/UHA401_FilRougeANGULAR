@@ -59,6 +59,7 @@ export class DetailsService {
     let result:any = [];
 
     try{
+      console.log(details);
       result = this.httpClient.put("api/details?album=" + details['album'], details, httpOptions);
     }catch (e){
       result['error'] = e;

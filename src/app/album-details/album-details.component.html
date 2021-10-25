@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12" style="height: 30%">
+    <div class="col-12" style="height: 25%">
       <div class="row p-2" style="height: 96%">
         <div class="col-12 dataSection mb-1" style="height: 10%">
           <div class="dFlex h-100 w-100">
@@ -41,16 +41,16 @@
         </div>
       </div>
     </div>
-    <div class="col-12" style="height: 29%">
+    <div class="col-12" style="height: 20%">
       <div class="row p-2" style="height: 96%">
         <div class="col-12 dataSection mb-1" style="height: 10%">
           <div class="dFlex h-100 w-100">
-            <div class="bigText">Description</div>
+            <div class="bigText">Pistes</div>
           </div>
         </div>
-        <div class="col-12 dataSection overflowY" style="height: 89%">
-          <div class="w-100 h-100">
-            {{albumDescription}}
+        <div class="col-12 dataSection p-1 overflow-auto" style="height: 89%">
+          <div class="overflowY d-flex flex-wrap flex-row">
+            <app-track-tag class="m-1 mb-1" style="min-width: 200px" *ngFor="let track of Tracks" [track]="track"></app-track-tag>
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@
       <app-album-card *ngFor="let album of albums" [AlbumID]="album['id']" [AlbumName]="album['nom']" [AlbumArtiste]="album['artiste']" [AlbumCover]="album['couverture']" [AlbumPiste]="album['pistes']" [AlbumSortie]="album['sortie']"></app-album-card>
     </div>
     <div class="col overflow-hidden sectionBackground shadow" style="max-height: 95%"> <!--Details-->
-      <app-album-details *ngIf="details['isDetails'] === 1" [albumLink]="details['details']['lastfm']" [correspondingAlbum]="details['currentAlbum']" [albumDescription]="details['details']['description']"></app-album-details>
+      <app-album-details *ngIf="details['isDetails'] === 1" [albumLink]="details['details']['lastfm']" [correspondingAlbum]="details['currentAlbum']" [albumDescription]="details['details']['description']" [albumTracks]="details['details']['tracks']"></app-album-details>
     </div>
   </div>
 </div>

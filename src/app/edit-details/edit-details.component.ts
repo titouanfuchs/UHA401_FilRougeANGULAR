@@ -36,14 +36,14 @@ export class EditDetailsComponent implements OnInit, OnChanges {
   }
 
   initEditData(){
-    this.details['album'] = this.albumID;
     if (this.trackService.tracks.length > 0){
       this.details['tracks'] = this.trackService.tracks;
     }
+    this.details['album'] = this.albumID;
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");
     if (triggerLoadButton != null){
       triggerLoadButton.click();
-      this.detailsService.EditAlbumDetails(this.albumID).subscribe((result:any) => {
+      this.detailsService.EditAlbumDetails(this.details).subscribe((result:any) => {
         setTimeout(() =>{
           this.adminService.showResumeModal(result);
           this.adminService.askRefresh();
