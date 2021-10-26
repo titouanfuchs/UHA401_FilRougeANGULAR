@@ -16,12 +16,12 @@ export class DetailsService {
   }
 
   getAlbumDetailsSimple(albumID:number){
-    return this.httpClient.get("api/details/" + albumID);
+    return this.httpClient.get("api/details?album=" + albumID);
   }
 
   getAlbumDetails(albumID:number, album:any){
     this.httpClient
-      .get<any>("api/details/" + albumID)
+      .get<any>("api/details?album=" + albumID)
       .subscribe((response) =>{
         if (response['status'] === 0){
           this.details[0]['isDetails'] = 0;
@@ -74,7 +74,7 @@ export class DetailsService {
     let result:any = [];
 
     try{
-      result = this.httpClient.delete("api/details/" + details, httpOptions);
+      result = this.httpClient.delete("api/details?album=" + details, httpOptions);
     }catch (e){
       result['error'] = e;
     }
