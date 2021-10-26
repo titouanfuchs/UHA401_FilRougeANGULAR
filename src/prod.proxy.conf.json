@@ -9,7 +9,7 @@
   },
 
   "/DB": {
-    "target": "dbBuild.php",
+    "target": "/dbBuild.php",
     "pathRewrite": {
       "^/DB": ""
     },
