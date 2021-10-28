@@ -12,10 +12,12 @@ export class AdminModalManagerService {
   refreshComponent = new Subject<any[]>();
 
   BDD(action:string): Observable<any>{
-    return this.httpClient.get("DB?action=" + action);
+    console.log(environment.production);
+    return this.httpClient.get(environment.dbBuildEndpoint + "?action=" + action);
   }
 
   getAPI(API:string): Observable<any>{
+    console.log(environment.dbBuildEndpoint);
     return this.httpClient.get("api/" + API);
   }
 
