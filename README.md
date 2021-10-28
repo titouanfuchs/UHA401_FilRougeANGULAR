@@ -24,3 +24,8 @@ Lors de la première initialisation il faut générer la base de données.
 - Enfin dans le menu ```Base de données``` selectionner ```Tout faire```. Cela va initialiser la base de données.
     ![Initialisation](https://i.imgur.com/NZVzDPc.png "Initialisation")
 
+## Base de données
+Il est possible de réaliser plusieurs actions sur la base de données avec `localhost/addresse/vers/le/site/dbBuild?action=<action>`.
+- `dbBuild?action=total` ou `dbBuild`(sans action) : Permet de totalement reconstruire la base de données.
+- `dbBuild?action=clear` : Permet de vider toutes les tables de la base de données.
+- `dbBuild?action=fill` : Permet de remplir toutes les tables depuis les API fournis.
