@@ -27,11 +27,13 @@ export class EditDetailsComponent implements OnInit, OnChanges {
 
   update(){
     this.detailsService.getAlbumDetailsSimple(this.albumID).subscribe( (result:any) => {
-      this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
-        this.details = result[0];
-        this.details['album'] = album[0]['nom'] + " - " + album[0]['artiste'];
-        this.trackService.tracks = JSON.parse(this.details['tracks']);
-      })
+      if (result[0]){
+        this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
+          this.details = result[0];
+          this.details['album'] = album[0]['nom'] + " - " + album[0]['artiste'];
+          this.trackService.tracks = JSON.parse(this.details['tracks']);
+        })
+      }
     });
   }
 

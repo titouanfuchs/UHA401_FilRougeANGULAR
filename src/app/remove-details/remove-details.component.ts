@@ -16,6 +16,7 @@ export class RemoveDetailsComponent implements OnInit, OnChanges {
   details: any = {};
 
   ngOnInit(): void {
+    console.log(this.albumID);
     this.update();
   }
 
@@ -24,12 +25,16 @@ export class RemoveDetailsComponent implements OnInit, OnChanges {
   }
 
   update(){
-    this.detailsService.getAlbumDetailsSimple(this.albumID).subscribe( (result:any) => {
-      this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
-        this.details = result[0];
-        this.details['album'] = album[0]['nom'] + " - " + album[0]['artiste'];
-      })
-    });
+    if (this.albumID !== 0){
+      this.detailsService.getAlbumDetailsSimple(this.albumID).subscribe( (result:any) => {
+        if (result[0]){
+          this.albumService.getAlbumByID(this.albumID).subscribe((album:any) => {
+            this.details = result[0];
+            this.details['album'] = album[0]['nom'] + " - " + album[0]['artiste'];
+          })
+        }
+      });
+    }
   }
 
   initDeleteData(){
