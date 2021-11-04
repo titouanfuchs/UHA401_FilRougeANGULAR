@@ -35,8 +35,10 @@ export class AddDetailsComponent implements OnInit {
     this.albumService.searchAlbum("");
   }
 
-  updateData(key:string, val:string){
+  updateAlbum(key:string, event: any){
+    let val = event.target.value;
     this.validity[0] = val != "0";
+    console.log(this.validity[0]);
     this.data[key] = val;
 
     for(let track of  this.trackService.tracks){
