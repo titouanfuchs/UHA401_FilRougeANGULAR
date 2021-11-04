@@ -15,7 +15,7 @@ export class EditDetailsComponent implements OnInit, OnChanges {
   details: any = {};
   validity = [true, true];
 
-  showTrack: boolean = false;
+  showTrack: boolean = true;
 
   constructor(private trackService:TrackService,private detailsService:DetailsService, private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
 
