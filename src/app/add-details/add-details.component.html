@@ -15,7 +15,7 @@
     <textarea class="form-control" aria-label="Description" required="required" id="description" (keyup)="this.onDescriptionUpdate($event)" value="{{this.default}}"></textarea>
   </div>
 
-  <app-track-edit [album]="this.data['album']" class="card mt-3"></app-track-edit>
+  <app-track-edit *ngIf="showTrackEdit" [album]="this.data['album']" class="card mt-3"></app-track-edit>
 
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="init()">Annuler</button>

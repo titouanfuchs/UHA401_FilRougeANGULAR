@@ -15,6 +15,8 @@ export class TrackEditComponent implements OnInit, OnChanges {
   constructor(public trackService:TrackService) { }
 
   ngOnInit(): void {
+    this.ShowTrack = false;
+    console.log("initialisation trackedit")
   }
 
   ngOnChanges(): void {

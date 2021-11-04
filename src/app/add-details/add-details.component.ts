@@ -16,6 +16,8 @@ export class AddDetailsComponent implements OnInit {
   validity = [false, false, false];
   default:string = "";
 
+  showTrackEdit: boolean = false;
+
   albumsSubscribe: Subscription = new Subscription();
   albums = [];
 
@@ -26,6 +28,7 @@ export class AddDetailsComponent implements OnInit {
   }
 
   init(){
+    this.showTrackEdit = false;
     this.default = "init";
     this.albumsSubscribe = this.albumService.albumSubject.subscribe((al:any) => {
       this.albums = al;
@@ -33,6 +36,7 @@ export class AddDetailsComponent implements OnInit {
       this.default = "";
     })
     this.albumService.searchAlbum("");
+    this.showTrackEdit = true;
   }
 
   updateAlbum(key:string, event: any){
@@ -44,6 +48,8 @@ export class AddDetailsComponent implements OnInit {
     for(let track of  this.trackService.tracks){
       track['albumID'] = val;
     }
+
+    this.trackService.tracks = [];
   }
 
   onDescriptionUpdate(event:any){
@@ -63,6 +69,7 @@ export class AddDetailsComponent implements OnInit {
   initPostToDetails(){
     if (this.trackService.tracks.length > 0){
       this.data['tracks'] = this.trackService.tracks;
+      this.trackService.tracks = [];
     }
 
     let triggerLoadButton: any = document.getElementById("triggerLoadModal");

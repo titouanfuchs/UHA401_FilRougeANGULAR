@@ -15,6 +15,8 @@ export class EditDetailsComponent implements OnInit, OnChanges {
   details: any = {};
   validity = [true, true];
 
+  showTrack: boolean = false;
+
   constructor(private trackService:TrackService,private detailsService:DetailsService, private adminService:AdminModalManagerService, private albumService:AlbumsService) { }
 
   ngOnInit(): void {
@@ -23,6 +25,12 @@ export class EditDetailsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.update();
+  }
+
+  reset(){
+    this.showTrack = false;
+    this.trackService.tracks = [];
+    this.showTrack = true;
   }
 
   update(){
@@ -46,6 +54,7 @@ export class EditDetailsComponent implements OnInit, OnChanges {
     if (triggerLoadButton != null){
       triggerLoadButton.click();
       this.detailsService.EditAlbumDetails(this.details).subscribe((result:any) => {
+        this.trackService.tracks = [];
         setTimeout(() =>{
           this.adminService.showResumeModal(result);
           this.adminService.askRefresh();
