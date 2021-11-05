@@ -33,7 +33,7 @@ export class AlbumsService {
 
   searchAlbum(searcharg:string){
     if (searcharg){
-      console.log("search");
+      console.log("search"); //TODO : What !
       this.httpClient
         .get<any>("api/albums?search=" + searcharg)
         .subscribe((response) =>{
@@ -43,7 +43,7 @@ export class AlbumsService {
           console.log(error);
         });
     }else{
-      console.log("No Search");
+      console.log("No Search"); //TODO : What !
       this.httpClient
         .get<any>("api/albums")
         .subscribe((response) =>{

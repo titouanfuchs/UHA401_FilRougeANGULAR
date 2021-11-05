@@ -16,7 +16,7 @@ export class TrackEditComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.ShowTrack = false;
-    console.log("initialisation trackedit")
+    console.log("initialisation trackedit") //TODO : adieu monde cruel !
   }
 
   ngOnChanges(): void {
@@ -26,6 +26,7 @@ export class TrackEditComponent implements OnInit, OnChanges {
     }
   }
 
+  //TODO : je ne comprends pas l'intérêt de cette fonction
   addTrack(){
     this.trackService.tracks.push({'albumID': this.album, 'trackNum':  this.trackService.tracks.length + 1, 'nom': 'Piste Sans nom', 'duree':'00:00'});
   }

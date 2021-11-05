@@ -40,7 +40,7 @@ export class DetailsService {
 
   postAlbumDetails(details:any): Observable<any>{
     const httpOptions = {
-      headers: {"Content-Type":"application/json","Authorization": "Parcequejailedroit"}
+      headers: {"Content-Type":"application/json","Authorization": "Parcequejailedroit"} //TODO : ce header est utilisé à plusieurs endroit, il pourrait devenir une propriété privée de la classe
     };
     let result:any = [];
 
@@ -59,7 +59,7 @@ export class DetailsService {
     let result:any = [];
 
     try{
-      console.log(details);
+      console.log(details); //TODO : tristesse ...
       result = this.httpClient.put("api/details?album=" + details['album'], details, httpOptions);
     }catch (e){
       result['error'] = e;

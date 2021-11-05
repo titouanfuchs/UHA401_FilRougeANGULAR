@@ -16,7 +16,7 @@ export class RemoveDetailsComponent implements OnInit, OnChanges {
   details: any = {};
 
   ngOnInit(): void {
-    console.log(this.albumID);
+    console.log(this.albumID); //TODO : Mais pourquoi ??
     this.update();
   }
 
@@ -42,7 +42,7 @@ export class RemoveDetailsComponent implements OnInit, OnChanges {
     if (triggerLoadButton != null){
       triggerLoadButton.click();
       this.detailsService.deleteAlbumDetails(this.albumID).subscribe((result:any) => {
-        setTimeout(() =>{
+        setTimeout(() =>{ //TODO : Mais pourquoi ?
           this.adminService.showResumeModal(result);
           this.adminService.askRefresh();
         }, 1000)

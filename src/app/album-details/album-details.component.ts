@@ -7,7 +7,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 })
 export class AlbumDetailsComponent implements OnInit, OnChanges {
 
-  @Input() correspondingAlbum: any = {"nom":"Album Sans nom", "couverture": "ahahahahahahaahahahhahahah"} ;
+  @Input() correspondingAlbum: any = {"nom":"Album Sans nom", "couverture": "ahahahahahahaahahahhahahah"} ; //TODO : ????
   @Input() albumDescription: string = "Pas de description";
   @Input() albumLink: string = "https://www.last.fm/home";
   @Input() albumTracks: string = "";

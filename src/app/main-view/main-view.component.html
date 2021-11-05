@@ -1,3 +1,5 @@
+<!-- TODO : éviter de mettre des styles directement dans des balises -->
+
 <div class="container-fluid h-100 overflow-hidden">
   <div class="row mb-3" style="height: 10%">
     <div class="m-2 col-1 order-first h-100"><!--Blank--></div>
@@ -38,12 +40,15 @@
       </div>
     </div>
     <div class="m-2 col-3 p-2 overflow-auto sectionBackground shadow" style="max-height: 95%"> <!--Groupes-->
+      <!-- TODO : pourquoi ne pas passer directement et uniquement la variable groupe en paramètre, au lieu de toutes les valeurs qui composent cette variable séparément -->
       <app-group-card *ngFor="let groupe of groupes" [GroupID]="groupe['id']" [GroupName]="groupe['nom']" [GroupChanteur]="groupe['chanteur']" [GroupOrigin]="groupe['origin']" [GroupGenres]="groupe['genres']"></app-group-card>
     </div>
     <div class="m-2 col-3 p-2 overflow-auto sectionBackground shadow" style="max-height: 95%"> <!--Albums-->
+      <!-- TODO : pourquoi ne pas passer directement et uniquement la variable album en paramètre, au lieu de toutes les valeurs qui composent cette variable séparément -->
       <app-album-card *ngFor="let album of albums" [AlbumID]="album['id']" [AlbumName]="album['nom']" [AlbumArtiste]="album['artiste']" [AlbumCover]="album['couverture']" [AlbumPiste]="album['pistes']" [AlbumSortie]="album['sortie']"></app-album-card>
     </div>
     <div class="col overflow-hidden sectionBackground shadow" style="max-height: 95%"> <!--Details-->
+      <!-- TODO : pourquoi ne pas passer directement et uniquement la variable details en paramètre, au lieu de toutes les valeurs qui composent cette variable séparément -->
       <app-album-details *ngIf="details['isDetails'] === 1" [albumLink]="details['details']['lastfm']" [correspondingAlbum]="details['currentAlbum']" [albumDescription]="details['details']['description']" [albumTracks]="details['details']['tracks']"></app-album-details>
     </div>
   </div>

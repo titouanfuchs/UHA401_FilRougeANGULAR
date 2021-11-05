@@ -39,10 +39,11 @@ export class AddDetailsComponent implements OnInit {
     this.showTrackEdit = true;
   }
 
+  //TODO : le nom de cette fonction ne semble pas faire ce qu'elle dit ..?
   updateAlbum(key:string, event: any){
     let val = event.target.value;
     this.validity[0] = val != "0";
-    console.log(this.validity[0]);
+    console.log(this.validity[0]); //TODO : why ?
     this.data[key] = val;
 
     for(let track of  this.trackService.tracks){

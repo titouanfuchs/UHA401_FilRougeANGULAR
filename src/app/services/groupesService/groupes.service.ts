@@ -23,8 +23,9 @@ export class GroupesService {
   }
 
   searchGroupe(searcharg:string){
+    //TODO : pourquoi une condition si les actions réalisées sont les mêmes ?
     if (searcharg){
-      console.log("search");
+      console.log("search"); //TODO : aaaargh ...
       this.httpClient
         .get<any>("api/groupes?search=" + searcharg)
         .subscribe((response) =>{

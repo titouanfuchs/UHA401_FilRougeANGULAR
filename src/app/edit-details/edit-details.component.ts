@@ -55,6 +55,7 @@ export class EditDetailsComponent implements OnInit, OnChanges {
       triggerLoadButton.click();
       this.detailsService.EditAlbumDetails(this.details).subscribe((result:any) => {
         this.trackService.tracks = [];
+        //TODO : ??? Je ne comprends pas le timeout
         setTimeout(() =>{
           this.adminService.showResumeModal(result);
           this.adminService.askRefresh();

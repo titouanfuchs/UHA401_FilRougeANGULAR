@@ -23,7 +23,7 @@ export class AlbumCardComponent implements OnInit {
 
   openAlbumDetails(id:number){
     this.albumService.getAlbumByID(id).subscribe( album =>{
-      console.log("ouverture des details, " + album[0]);
+      console.log("ouverture des details, " + album[0]); //TODO : à virer pour la prod
       this.detailService.getAlbumDetails(id, album[0]);
     });
   }

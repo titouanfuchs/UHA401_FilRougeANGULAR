@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+//TODO : j'ai l'impression que ce component n'est pas utilisé
 @Component({
   selector: 'app-text-block',
   templateUrl: './text-block.component.html',

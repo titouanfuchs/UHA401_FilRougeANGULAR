@@ -16,6 +16,7 @@ export class AdminViewComponent implements OnInit {
 
   constructor(private adminService:AdminModalManagerService, private apiService:ApiTablesService) { }
 
+  //TODO : je ne comprends pas l'intérêt de faire appel à un service pour afficher une page, il faut juste appeler le rooter
   showApi(api:string){
     this.apiService.api(1, api);
   }
@@ -24,6 +25,7 @@ export class AdminViewComponent implements OnInit {
     this.apiService.api(0);
   }
 
+  //TODO : il est plus parlant que action soit une chaîne de caractères
   callBDDAction(action:number){
     switch (action){
       case 0:
@@ -43,7 +45,7 @@ export class AdminViewComponent implements OnInit {
     if (triggerLoadButton != null){
       triggerLoadButton.click();
       this.adminService.BDD(action).subscribe((result:any) => {
-        setTimeout(() =>{
+        setTimeout(() =>{ //TODO : setTimeout est à éviter le plus possible
           this.adminService.showResumeModal(result);
         }, 1000)
       })

@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:80/fil-rouge-titouan-2021/API/",
+    "target": "http://localhost:80/Sites/fil-rouge-titouan-2021/API/",
     "pathRewrite": {
       "^/api": ""
     },
@@ -9,7 +9,7 @@
   },
 
   "/DB": {
-    "target": "http://localhost:80/fil-rouge-titouan-2021/dbBuild",
+    "target": "http://localhost:80/Sites/fil-rouge-titouan-2021/dbBuild",
     "pathRewrite": {
       "^/DB": ""
     },
